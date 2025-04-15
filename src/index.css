@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -94,8 +97,41 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', sans-serif;
   }
+  
+  .container {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-blue hover:bg-primary-light text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-primary-blue mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-gray-600 mb-8 max-w-3xl;
+  }
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
 }
