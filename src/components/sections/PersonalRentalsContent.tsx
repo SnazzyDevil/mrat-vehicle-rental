@@ -1,38 +1,20 @@
-
 import { CheckCircle, User, Box, Calendar } from 'lucide-react';
-
 const PersonalRentalsContent = () => {
-  const useCases = [
-    {
-      title: 'Moving Home',
-      icon: Box,
-      description: 'Save money on moving costs by renting a van and doing it yourself. Perfect for apartment or small home moves.'
-    },
-    {
-      title: 'Furniture Transport',
-      icon: User,
-      description: 'Transport large furniture items from stores to your home or when buying second-hand furniture online.'
-    },
-    {
-      title: 'Weekend Projects',
-      icon: Calendar,
-      description: 'Perfect for DIY projects, garden clearance, or taking waste to the recycling center.'
-    }
-  ];
-
-  const benefits = [
-    'No hidden fees or charges',
-    'Flexible rental periods from 4 hours to multiple days',
-    'Comprehensive insurance options',
-    'Clean, well-maintained vehicles',
-    '24/7 roadside assistance',
-    'Easy pick-up and drop-off process',
-    'Affordable security deposit options',
-    'All vehicles under 3 years old'
-  ];
-
-  return (
-    <section className="section-padding bg-gray-50">
+  const useCases = [{
+    title: 'Moving Home',
+    icon: Box,
+    description: 'Save money on moving costs by renting a van and doing it yourself. Perfect for apartment or small home moves.'
+  }, {
+    title: 'Furniture Transport',
+    icon: User,
+    description: 'Transport large furniture items from stores to your home or when buying second-hand furniture online.'
+  }, {
+    title: 'Weekend Projects',
+    icon: Calendar,
+    description: 'Perfect for DIY projects, garden clearance, or taking waste to the recycling center.'
+  }];
+  const benefits = ['No hidden fees or charges', 'Flexible rental periods from 4 hours to multiple days', 'Comprehensive insurance options', 'Clean, well-maintained vehicles', '24/7 roadside assistance', 'Easy pick-up and drop-off process', 'Affordable security deposit options', 'All vehicles under 3 years old'];
+  return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">Personal Van Rentals</h2>
@@ -42,35 +24,27 @@ const PersonalRentalsContent = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {useCases.map((useCase, index) => (
-            <div key={index} className="bg-white rounded-lg p-6 shadow-md card-hover">
+          {useCases.map((useCase, index) => <div key={index} className="bg-white rounded-lg p-6 shadow-md card-hover">
               <div className="bg-primary-light bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
                 <useCase.icon className="w-8 h-8 text-primary-blue" />
               </div>
               <h3 className="text-xl font-semibold text-center mb-3">{useCase.title}</h3>
               <p className="text-gray-600 text-center">{useCase.description}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 items-center mb-16">
           <div className="md:w-1/2">
-            <img 
-              src="https://images.unsplash.com/photo-1589730823931-78f8f151a2c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
-              alt="Person loading a van" 
-              className="rounded-lg shadow-lg w-full h-80 object-cover"
-            />
+            <img alt="Person loading a van" className="rounded-lg shadow-lg w-full h-80 object-cover" src="/lovable-uploads/b0560789-70cc-41ab-99c7-f2cb621d8e0d.jpg" />
           </div>
           
           <div className="md:w-1/2">
             <h3 className="text-2xl font-bold text-primary-blue mb-6">Why Rent With Us</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start">
+              {benefits.map((benefit, index) => <div key={index} className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-orange mr-2 mt-0.5 flex-shrink-0" />
                   <span className="text-gray-700">{benefit}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <a href="#booking" className="btn-accent inline-block">
@@ -115,8 +89,6 @@ const PersonalRentalsContent = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default PersonalRentalsContent;
