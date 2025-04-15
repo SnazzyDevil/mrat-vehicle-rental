@@ -28,7 +28,7 @@ const AboutContent = () => {
     {
       icon: Users,
       title: 'Community',
-      description: 'As a local business, we're committed to supporting the communities we serve and maintaining strong relationships with our customers.'
+      description: "As a local business, we're committed to supporting the communities we serve and maintaining strong relationships with our customers."
     }
   ];
 
@@ -107,3 +107,4 @@ const AboutContent = () => {
 };
 
 export default AboutContent;
+
