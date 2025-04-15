@@ -1,5 +1,5 @@
 
-import { BookingWidget } from '@/components/ui/BookingWidget';
+import BookingWidget from '@/components/ui/BookingWidget';
 
 const BookingContent = () => {
   return (
