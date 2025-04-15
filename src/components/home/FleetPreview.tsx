@@ -1,38 +1,30 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const vans = [
-  {
-    id: 1,
-    name: 'Compact Van',
-    image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
-    description: 'Perfect for small deliveries and urban navigation',
-    price: 'From R650/day',
-    link: '/fleet?category=compact'
-  },
-  {
-    id: 2,
-    name: 'Medium Van',
-    image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
-    description: 'Ideal for medium loads and furniture moving',
-    price: 'From R850/day',
-    link: '/fleet?category=medium'
-  },
-  {
-    id: 3,
-    name: 'Large Van',
-    image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
-    description: 'Spacious capacity for larger moves and deliveries',
-    price: 'From R1050/day',
-    link: '/fleet?category=large'
-  }
-];
-
+const vans = [{
+  id: 1,
+  name: 'Compact Van',
+  image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
+  description: 'Perfect for small deliveries and urban navigation',
+  price: 'From R650/day',
+  link: '/fleet?category=compact'
+}, {
+  id: 2,
+  name: 'Medium Van',
+  image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
+  description: 'Ideal for medium loads and furniture moving',
+  price: 'From R850/day',
+  link: '/fleet?category=medium'
+}, {
+  id: 3,
+  name: 'Large Van',
+  image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
+  description: 'Spacious capacity for larger moves and deliveries',
+  price: 'From R1050/day',
+  link: '/fleet?category=large'
+}];
 const FleetPreview = () => {
-  return (
-    <section className="section-padding bg-gray-50">
+  return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">Our Fleet</h2>
@@ -42,17 +34,9 @@ const FleetPreview = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {vans.map((van) => (
-            <div 
-              key={van.id} 
-              className="bg-white rounded-lg overflow-hidden shadow-md card-hover"
-            >
+          {vans.map(van => <div key={van.id} className="bg-white rounded-lg overflow-hidden shadow-md card-hover">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={van.image} 
-                  alt={van.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
-                />
+                <img src={van.image} alt={van.name} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary-blue mb-2">{van.name}</h3>
@@ -67,20 +51,15 @@ const FleetPreview = () => {
                   </Link>
                 </div>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         <div className="mt-12 text-center">
           <Link to="/fleet">
-            <Button className="btn-primary">
-              View All Vehicles
-            </Button>
+            
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FleetPreview;
