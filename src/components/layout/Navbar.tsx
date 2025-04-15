@@ -1,10 +1,13 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Navbar = () => {
+interface NavbarProps {
+  isSinglePage?: boolean;
+}
+
+const Navbar = ({ isSinglePage = false }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -33,11 +36,11 @@ const Navbar = () => {
   const navItems = [
     {
       title: 'Home',
-      path: '/'
+      path: isSinglePage ? '#home' : '/'
     }, 
     {
       title: 'Our Fleet',
-      path: '/fleet'
+      path: isSinglePage ? '#fleet' : '/fleet'
     }, 
     {
       title: 'Services',
@@ -45,41 +48,57 @@ const Navbar = () => {
       items: [
         {
           title: 'Business Rentals',
-          path: '/business-rentals'
+          path: isSinglePage ? '#business-rentals' : '/business-rentals'
         }, 
         {
           title: 'Personal Rentals',
-          path: '/personal-rentals'
+          path: isSinglePage ? '#personal-rentals' : '/personal-rentals'
         }
       ]
     }, 
     {
       title: 'Booking',
-      path: '/booking'
+      path: isSinglePage ? '#booking' : '/booking'
     }, 
     {
       title: 'About Us',
-      path: '/about'
+      path: isSinglePage ? '#about' : '/about'
     }, 
     {
       title: 'FAQ',
-      path: '/faq'
+      path: isSinglePage ? '#faq' : '/faq'
     }, 
     {
       title: 'Contact Us',
-      path: '/contact'
+      path: isSinglePage ? '#contact' : '/contact'
     }
   ];
+
+  const LinkComponent = ({ path, children, className, onClick }: { path: string, children: React.ReactNode, className?: string, onClick?: () => void }) => {
+    if (isSinglePage) {
+      return (
+        <a href={path} className={className} onClick={onClick}>
+          {children}
+        </a>
+      );
+    } else {
+      return (
+        <a href={path} className={className} onClick={onClick}>
+          {children}
+        </a>
+      );
+    }
+  };
 
   return (
     <nav className={`fixed top-0 w-full z-50 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} transition-all duration-300`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center">
               <span className="text-2xl font-bold text-primary-blue">APEX</span>
               <span className="ml-1 text-xl text-accent-orange font-semibold">VAN HIRE</span>
-            </Link>
+            </LinkComponent>
           </div>
           
           {/* Desktop navigation */}
@@ -96,34 +115,34 @@ const Navbar = () => {
                   {openDropdown === item.title && (
                     <div className="absolute mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                       {item.items?.map(dropdownItem => (
-                        <Link 
+                        <LinkComponent 
                           key={dropdownItem.title} 
-                          to={dropdownItem.path} 
+                          path={dropdownItem.path} 
                           className="block px-4 py-2 text-gray-700 hover:bg-gray-100" 
                           onClick={() => setOpenDropdown(null)}
                         >
                           {dropdownItem.title}
-                        </Link>
+                        </LinkComponent>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <Link 
+                <LinkComponent 
                   key={item.title} 
-                  to={item.path} 
+                  path={item.path} 
                   className="px-3 py-2 text-accent-orange hover:text-primary-blue"
                 >
                   {item.title}
-                </Link>
+                </LinkComponent>
               )
             )}
           </div>
           
           <div className="hidden md:flex">
-            <Link to="/booking">
-              <Button className="btn-accent">Book Now</Button>
-            </Link>
+            <LinkComponent path={isSinglePage ? '#booking' : '/booking'} className="btn-accent">
+              Book Now
+            </LinkComponent>
           </div>
           
           {/* Mobile menu button */}
@@ -152,37 +171,37 @@ const Navbar = () => {
                     {openDropdown === item.title && (
                       <div className="pl-4 space-y-1">
                         {item.items?.map(dropdownItem => (
-                          <Link 
+                          <LinkComponent 
                             key={dropdownItem.title} 
-                            to={dropdownItem.path} 
+                            path={dropdownItem.path} 
                             className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-blue hover:bg-gray-50 rounded-md" 
                             onClick={() => setIsOpen(false)}
                           >
                             {dropdownItem.title}
-                          </Link>
+                          </LinkComponent>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <Link 
+                  <LinkComponent 
                     key={item.title} 
-                    to={item.path} 
+                    path={item.path} 
                     className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-blue hover:bg-gray-50 rounded-md" 
                     onClick={() => setIsOpen(false)}
                   >
                     {item.title}
-                  </Link>
+                  </LinkComponent>
                 )
               )}
               <div className="pt-4">
-                <Link 
-                  to="/booking" 
+                <LinkComponent 
+                  path={isSinglePage ? '#booking' : '/booking'} 
                   className="block w-full text-center btn-accent" 
                   onClick={() => setIsOpen(false)}
                 >
                   Book Now
-                </Link>
+                </LinkComponent>
               </div>
             </div>
           </div>

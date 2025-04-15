@@ -1,18 +1,31 @@
 
-import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock } from 'lucide-react';
 
-const Footer = () => {
+interface FooterProps {
+  isSinglePage?: boolean;
+}
+
+const Footer = ({ isSinglePage = false }: FooterProps) => {
+  const LinkComponent = ({ path, children, className }: { path: string, children: React.ReactNode, className?: string }) => {
+    if (isSinglePage && path.startsWith('/')) {
+      // Convert route paths to anchor links
+      const anchor = path.replace('/', '#');
+      return <a href={anchor} className={className}>{children}</a>;
+    } else {
+      return <a href={path} className={className}>{children}</a>;
+    }
+  };
+  
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Link to="/" className="flex items-center mb-4">
+            <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center mb-4">
               <span className="text-2xl font-bold text-white">APEX</span>
               <span className="ml-1 text-xl text-accent-orange font-semibold">VAN HIRE</span>
-            </Link>
+            </LinkComponent>
             <p className="text-gray-400 mb-4">
               Your trusted partner for reliable and affordable van rentals. Whether for business or personal use, we've got the right vehicle for your needs.
             </p>
@@ -34,22 +47,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/fleet" className="text-gray-400 hover:text-white transition-colors">Our Fleet</Link>
+                <LinkComponent path={isSinglePage ? '#fleet' : '/fleet'} className="text-gray-400 hover:text-white transition-colors">Our Fleet</LinkComponent>
               </li>
               <li>
-                <Link to="/business-rentals" className="text-gray-400 hover:text-white transition-colors">Business Rentals</Link>
+                <LinkComponent path={isSinglePage ? '#business-rentals' : '/business-rentals'} className="text-gray-400 hover:text-white transition-colors">Business Rentals</LinkComponent>
               </li>
               <li>
-                <Link to="/personal-rentals" className="text-gray-400 hover:text-white transition-colors">Personal Rentals</Link>
+                <LinkComponent path={isSinglePage ? '#personal-rentals' : '/personal-rentals'} className="text-gray-400 hover:text-white transition-colors">Personal Rentals</LinkComponent>
               </li>
               <li>
-                <Link to="/booking" className="text-gray-400 hover:text-white transition-colors">Book Online</Link>
+                <LinkComponent path={isSinglePage ? '#booking' : '/booking'} className="text-gray-400 hover:text-white transition-colors">Book Online</LinkComponent>
               </li>
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link>
+                <LinkComponent path={isSinglePage ? '#about' : '/about'} className="text-gray-400 hover:text-white transition-colors">About Us</LinkComponent>
               </li>
               <li>
-                <Link to="/faq" className="text-gray-400 hover:text-white transition-colors">FAQ</Link>
+                <LinkComponent path={isSinglePage ? '#faq' : '/faq'} className="text-gray-400 hover:text-white transition-colors">FAQ</LinkComponent>
               </li>
             </ul>
           </div>
@@ -113,9 +126,9 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Apex Van Hire. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm text-gray-400">
-            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link to="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>
