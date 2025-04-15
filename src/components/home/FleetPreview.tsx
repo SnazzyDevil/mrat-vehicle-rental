@@ -7,7 +7,7 @@ const vans = [
   {
     id: 1,
     name: 'Compact Van',
-    image: 'https://images.unsplash.com/photo-1609519031670-f5c6ab64858c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
     description: 'Perfect for small deliveries and urban navigation',
     price: 'From R650/day',
     link: '/fleet?category=compact'
@@ -15,7 +15,7 @@ const vans = [
   {
     id: 2,
     name: 'Medium Van',
-    image: 'https://images.unsplash.com/photo-1672590858482-a8ed5532d771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
     description: 'Ideal for medium loads and furniture moving',
     price: 'From R850/day',
     link: '/fleet?category=medium'
@@ -23,7 +23,7 @@ const vans = [
   {
     id: 3,
     name: 'Large Van',
-    image: 'https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+    image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
     description: 'Spacious capacity for larger moves and deliveries',
     price: 'From R1050/day',
     link: '/fleet?category=large'
