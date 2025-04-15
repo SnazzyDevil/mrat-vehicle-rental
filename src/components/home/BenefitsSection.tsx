@@ -1,58 +1,50 @@
 
-import { CheckCircle, Clock, Truck, CreditCard, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Truck, Clock, CreditCard, Smile } from 'lucide-react';
 
 const benefits = [
   {
-    icon: <Truck className="h-10 w-10 text-accent-orange" />,
-    title: 'Wide Range of Vans',
-    description: 'Choose from our extensive fleet of well-maintained vans to meet your specific needs.'
+    title: "Wide Range of Vans",
+    description: "Choose from our diverse fleet to find the perfect van for your specific needs.",
+    icon: Truck,
   },
   {
-    icon: <CreditCard className="h-10 w-10 text-accent-orange" />,
-    title: 'Competitive Pricing',
-    description: 'Get the best value for your money with our transparent and competitive rates.'
+    title: "Quick Booking Process",
+    description: "Our streamlined booking system gets you on the road faster with minimal paperwork.",
+    icon: Clock,
   },
   {
-    icon: <Clock className="h-10 w-10 text-accent-orange" />,
-    title: 'Flexible Rental Periods',
-    description: 'Rent for as short as a day or as long as several months to suit your schedule.'
+    title: "Competitive Pricing",
+    description: "Enjoy affordable rates with transparent pricing and no hidden fees.",
+    icon: CreditCard,
   },
   {
-    icon: <CheckCircle className="h-10 w-10 text-accent-orange" />,
-    title: 'Quality Guaranteed',
-    description: 'All our vans are regularly serviced and maintained to ensure reliability.'
+    title: "Excellent Customer Service",
+    description: "Our friendly team is always ready to assist you with any queries or requirements.",
+    icon: Smile,
   },
-  {
-    icon: <ShieldCheck className="h-10 w-10 text-accent-orange" />,
-    title: 'Comprehensive Insurance',
-    description: 'Drive with peace of mind knowing you're covered by our comprehensive insurance options.'
-  },
-  {
-    icon: <HeartHandshake className="h-10 w-10 text-accent-orange" />,
-    title: 'Excellent Customer Service',
-    description: 'Our friendly team is always ready to assist you with any queries or special requirements.'
-  }
 ];
 
 const BenefitsSection = () => {
   return (
-    <section className="section-padding">
-      <div className="container mx-auto">
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="section-title">Why Choose Apex Van Hire</h2>
-          <p className="section-subtitle mx-auto">
-            We strive to provide the best van rental experience with our commitment to quality, reliability, and customer satisfaction.
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">Why Choose Apex Van Hire?</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            We pride ourselves on providing reliable vehicles and exceptional service for all your transportation needs.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              className="bg-white p-6 rounded-lg shadow-md card-hover flex flex-col items-center text-center"
             >
-              <div className="mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-semibold text-primary-blue mb-2">{benefit.title}</h3>
+              <div className="bg-primary-light bg-opacity-10 p-4 rounded-full mb-4">
+                <benefit.icon className="w-8 h-8 text-primary-blue" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
               <p className="text-gray-600">{benefit.description}</p>
             </div>
           ))}
