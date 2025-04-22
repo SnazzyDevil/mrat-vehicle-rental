@@ -88,7 +88,7 @@ const ContactContent = () => {
           
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-primary-blue mb-6">Send Us a Message</h3>
+              <h3 className="text-xl font-bold mb-6 text-[#601112]">Send Us a Message</h3>
               
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
