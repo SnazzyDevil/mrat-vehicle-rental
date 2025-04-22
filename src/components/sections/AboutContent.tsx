@@ -70,7 +70,7 @@ const AboutContent = () => {
             </div>)}
         </div>
 
-        <div className="text-white rounded-lg p-8 text-center bg-[#801818]">
+        <div className="text-white p-8 text-center bg-[#801818] rounded-full">
           <h3 className="text-2xl font-bold mb-4">Join the MRAT Family</h3>
           <p className="mb-6 max-w-2xl mx-auto">
             Whether you're a business in need of reliable transportation or an individual with a moving project, we're here to support you with quality vehicles and exceptional service.
