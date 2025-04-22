@@ -47,7 +47,7 @@ const BusinessRentalsContent = () => {
             <h3 className="text-2xl font-bold text-primary-blue mb-4">Business Benefits</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {benefits.map((benefit, index) => <div key={index} className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent-orange mr-2 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-accent-orange mr-2 mt-0.5 flex-shrink-0 bg-transparent" />
                   <span className="text-gray-700">{benefit}</span>
                 </div>)}
             </div>
@@ -72,7 +72,7 @@ const BusinessRentalsContent = () => {
                   </ul>
                 </div>
                 <div className="text-center mt-6">
-                  <p className="text-accent-orange font-bold text-xl mb-3">{pkg.price}</p>
+                  <p className="text-xl mb-3 font-bold text-[#801818]">{pkg.price}</p>
                   <a href="#booking" className="btn-accent inline-block text-sm py-2 px-4">
                     Request Quote
                   </a>
