@@ -27,8 +27,8 @@ const FleetPreview = () => {
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title text-accent-orange">Our Fleet</h2>
-          <p className="section-subtitle mx-auto text-accent-orange">
+          <h2 className="section-title">Our Fleet</h2>
+          <p className="section-subtitle mx-auto">
             We offer a wide range of vans to suit your needs, from compact vans for small deliveries to large vans for bigger moves.
           </p>
         </div>

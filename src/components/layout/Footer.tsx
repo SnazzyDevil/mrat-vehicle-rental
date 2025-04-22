@@ -22,14 +22,14 @@ const Footer = ({
       return <a href={path} className={className}>{children}</a>;
     }
   };
-  return <footer className="text-white pt-12 pb-6 bg-primary-light">
+  return <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center mb-4">
               <span className="text-2xl font-bold text-white">MRAT</span>
-              <span className="ml-1 text-xl font-semibold text-slate-950">VAN HIRE</span>
+              <span className="ml-1 text-xl text-accent-orange font-semibold">VAN HIRE</span>
             </LinkComponent>
             <p className="text-gray-400 mb-4">
               Your trusted partner for reliable and affordable van rentals. Whether for business or personal use, we've got the right vehicle for your needs.

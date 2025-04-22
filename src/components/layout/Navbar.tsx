@@ -69,7 +69,7 @@ const Navbar = ({
     onClick?: () => void;
   }) => {
     if (isSinglePage) {
-      return <a href={path} onClick={onClick} className="">
+      return <a href={path} className={className} onClick={onClick}>
           {children}
         </a>;
     } else {
@@ -79,19 +79,19 @@ const Navbar = ({
     }
   };
   return <nav className={`fixed top-0 w-full z-50 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} transition-all duration-300`}>
-      <div className="container mx-auto px-4 md:px-6 bg-accent-orange">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center">
               <span className="text-2xl font-bold text-primary-blue">MRAT</span>
-              <span className="ml-1 text-xl font-semibold text-slate-50">VEHICLE RENTAL</span>
+              <span className="ml-1 text-xl text-accent-orange font-semibold">VEHICLE RENTAL</span>
             </LinkComponent>
           </div>
           
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map(item => item.dropdown ? <div key={item.title} className="relative group">
-                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center hover:text-primary-blue text-slate-50">
+                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center text-accent-orange hover:text-primary-blue">
                     {item.title}
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>

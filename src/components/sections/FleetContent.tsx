@@ -1,9 +1,5 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-
 const categories = ['all', 'compact', 'medium', 'large'];
 const vans = [{
   id: 1,
@@ -90,125 +86,10 @@ const vans = [{
     transmission: 'Automatic'
   }
 }];
-
 const FleetContent = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedVan, setSelectedVan] = useState<number | null>(null);
   const filteredVans = activeCategory === 'all' ? vans : vans.filter(van => van.category === activeCategory);
-  
-  const selectedVanItem = selectedVan !== null ? vans.find(van => van.id === selectedVan) : null;
-
-  return (
-    <section className="section-padding bg-gray-50">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">Our Van Fleet</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Browse our range of vans for hire, from compact city vans to large movers. Find the perfect van for your needs.
-          </p>
-        </div>
-
-        <Tabs defaultValue="all" className="w-full mb-8">
-          <TabsList className="flex justify-center mb-8">
-            {categories.map((category) => (
-              <TabsTrigger 
-                key={category} 
-                value={category}
-                onClick={() => setActiveCategory(category)}
-                className="capitalize"
-              >
-                {category}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredVans.map((van) => (
-            <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-              <div className="relative h-48">
-                <img 
-                  src={van.image} 
-                  alt={van.name} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-primary-blue">{van.name}</h3>
-                  <span className="text-accent-orange font-semibold">{van.price}</span>
-                </div>
-                <p className="text-gray-600 text-sm mb-4">{van.description}</p>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button 
-                      onClick={() => setSelectedVan(van.id)} 
-                      className="w-full"
-                    >
-                      View Details
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="sm:max-w-[600px]">
-                    {selectedVanItem && (
-                      <>
-                        <DialogHeader>
-                          <DialogTitle className="text-2xl">{selectedVanItem.name}</DialogTitle>
-                          <DialogDescription>{selectedVanItem.description}</DialogDescription>
-                        </DialogHeader>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                          <div>
-                            <img 
-                              src={selectedVanItem.image} 
-                              alt={selectedVanItem.name} 
-                              className="w-full h-auto rounded-lg"
-                            />
-                            <p className="text-lg font-semibold text-accent-orange mt-2">{selectedVanItem.price}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-lg mb-2">Specifications</h4>
-                            <ul className="space-y-2">
-                              <li className="flex justify-between">
-                                <span className="text-gray-600">Load Space:</span>
-                                <span className="font-medium">{selectedVanItem.specs.loadSpace}</span>
-                              </li>
-                              <li className="flex justify-between">
-                                <span className="text-gray-600">Max Load:</span>
-                                <span className="font-medium">{selectedVanItem.specs.maxLoad}</span>
-                              </li>
-                              <li className="flex justify-between">
-                                <span className="text-gray-600">Dimensions:</span>
-                                <span className="font-medium">{selectedVanItem.specs.dimensions}</span>
-                              </li>
-                              <li className="flex justify-between">
-                                <span className="text-gray-600">Fuel Type:</span>
-                                <span className="font-medium">{selectedVanItem.specs.fuelType}</span>
-                              </li>
-                              <li className="flex justify-between">
-                                <span className="text-gray-600">Transmission:</span>
-                                <span className="font-medium">{selectedVanItem.specs.transmission}</span>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="flex justify-between mt-4">
-                          <a href="#contact" className="bg-accent-orange text-white py-2 px-5 rounded font-medium hover:bg-opacity-90 transition-colors">
-                            Contact Us
-                          </a>
-                          <DialogClose asChild>
-                            <Button variant="outline">Close</Button>
-                          </DialogClose>
-                        </div>
-                      </>
-                    )}
-                  </DialogContent>
-                </Dialog>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return;
 };
-
 export default FleetContent;
