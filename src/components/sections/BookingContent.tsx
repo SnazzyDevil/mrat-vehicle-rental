@@ -1,7 +1,7 @@
 import BookingWidget from '@/components/ui/BookingWidget';
 const BookingContent = () => {
   return <section className="bg-[#601112]">
-      <div className="container mx-auto">
+      <div className="container mx-auto py-[42px]">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Book Your Vehicle</h2>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">
