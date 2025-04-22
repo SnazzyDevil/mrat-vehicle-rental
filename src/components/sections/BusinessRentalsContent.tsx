@@ -57,7 +57,7 @@ const BusinessRentalsContent = () => {
         <h3 className="text-2xl font-bold text-primary-blue mb-6 text-center">Business Rental Packages</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {packages.map((pkg, index) => <div key={index} className="bg-gray-50 rounded-lg overflow-hidden shadow-md border border-gray-100">
-              <div className="bg-primary-blue text-white p-4 text-center">
+              <div className="text-white p-4 text-center bg-[#601112]">
                 <h4 className="text-xl font-bold">{pkg.name}</h4>
               </div>
               <div className="p-6">
