@@ -13,7 +13,7 @@ const ContactContent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-xl font-bold text-primary-blue mb-6">Contact Information</h3>
+              <h3 className="text-xl font-bold mb-6 text-[#601112]">Contact Information</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start">
