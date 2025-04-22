@@ -54,7 +54,7 @@ const AboutContent = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {stats.map((stat, index) => <div key={index} className="bg-gray-50 rounded-lg p-6 text-center shadow-sm">
-              <div className="text-3xl font-bold text-accent-#801818 mb-1 bg-transparent">{stat.value}</div>
+              <div className="text-3xl font-bold text-accent-Maroon mb-1 bg-transparent">{stat.value}</div>
               <div className="text-gray-600">{stat.label}</div>
             </div>)}
         </div>
