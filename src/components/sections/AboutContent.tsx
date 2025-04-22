@@ -59,7 +59,7 @@ const AboutContent = () => {
             </div>)}
         </div>
 
-        <h3 className="text-2xl font-bold text-primary-blue mb-6 text-center">Our Values</h3>
+        <h3 className="text-2xl font-bold mb-6 text-center text-[#601112]">Our Values</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {values.map((value, index) => <div key={index} className="bg-gray-50 rounded-lg p-6 text-center shadow-md">
               <div className="bg-primary-light bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
