@@ -19,7 +19,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="animate-fade-up">
+          <div className="animate-fade-up mx-px my-[32px]">
             <BookingWidget className="lg:ml-auto lg:max-w-md" />
           </div>
         </div>
