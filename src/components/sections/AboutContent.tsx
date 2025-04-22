@@ -48,7 +48,7 @@ const AboutContent = () => {
           </div>
 
           <div className="md:w-1/2">
-            <img alt="Apex Van Hire fleet" className="rounded-lg shadow-lg w-full h-80 object-cover" src="/lovable-uploads/63d0ab4f-cbff-4333-8d78-a1adc22e8dd7.jpg" />
+            <img alt="Apex Van Hire fleet" src="/lovable-uploads/80960dd6-a5fd-4f4e-89af-c0621bb010a7.png" className="rounded-lg shadow-lg w-full h-80 object-contain" />
           </div>
         </div>
 
