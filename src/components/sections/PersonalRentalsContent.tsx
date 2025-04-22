@@ -54,7 +54,7 @@ const PersonalRentalsContent = () => {
         </div>
 
         <div className="bg-white p-8 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold text-primary-blue mb-4 text-center">How It Works</h3>
+          <h3 className="text-2xl font-bold mb-4 text-center text-[#601112]">How It Works</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center">
