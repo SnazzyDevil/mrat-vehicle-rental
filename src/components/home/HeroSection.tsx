@@ -30,7 +30,7 @@ const HeroSection = () => {
       backgroundImage: "url('https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
       backgroundSize: "cover",
       backgroundPosition: "center"
-    }} className="absolute inset-0 z-0 opacity-20 bg-[#601112]" />
+    }} className="bg-[#601112]" />
     </div>;
 };
 export default HeroSection;
