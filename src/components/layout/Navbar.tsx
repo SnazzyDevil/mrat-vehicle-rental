@@ -69,7 +69,7 @@ const Navbar = ({
     onClick?: () => void;
   }) => {
     if (isSinglePage) {
-      return <a href={path} className={className} onClick={onClick}>
+      return <a href={path} onClick={onClick} className="">
           {children}
         </a>;
     } else {
@@ -91,7 +91,7 @@ const Navbar = ({
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map(item => item.dropdown ? <div key={item.title} className="relative group">
-                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center text-accent-orange hover:text-primary-blue">
+                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center hover:text-primary-blue text-slate-50">
                     {item.title}
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
