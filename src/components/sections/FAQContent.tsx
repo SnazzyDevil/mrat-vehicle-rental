@@ -79,7 +79,7 @@ const FAQContent = () => {
           <div className="space-y-4">
             {faqItems[activeCategory as keyof typeof faqItems].map((item, index) => <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
                 <button onClick={() => toggleQuestion(index)} className="flex justify-between items-center w-full p-4 text-left bg-gray-50 hover:bg-gray-100">
-                  <span className="font-medium text-primary-blue">{item.question}</span>
+                  <span className="font-medium text-primary-blue text-primary-dark">{item.question}</span>
                   {activeIndex === index ? <ChevronUp className="h-5 w-5 text-primary-blue" /> : <ChevronDown className="h-5 w-5 text-primary-blue" />}
                 </button>
                 {activeIndex === index && <div className="p-4 bg-white">
