@@ -1,20 +1,23 @@
-import BookingWidget from '@/components/ui/BookingWidget';
+
+import ContactForm from '@/components/ui/ContactForm';
+
 const BookingContent = () => {
-  return <section className="section-padding bg-gradient-to-r from-gray-900 to-primary-blue">
+  return (
+    <section className="section-padding bg-gradient-to-r from-gray-900 to-primary-blue">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Book Your Vehicle</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-            Complete the booking form below to reserve your van. We'll confirm your booking promptly.
+            Have any questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
 
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
-          <BookingWidget className="w-full" />
+          <ContactForm className="w-full" />
         </div>
 
         <div className="mt-12 text-center text-white">
-          <h3 className="text-xl font-semibold mb-4">Need Help With Your Booking?</h3>
+          <h3 className="text-xl font-semibold mb-4">Need Immediate Assistance?</h3>
           <p className="mb-6">
             Our customer service team is available to assist you with any questions or special requirements.
           </p>
@@ -35,6 +38,8 @@ const BookingContent = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default BookingContent;
