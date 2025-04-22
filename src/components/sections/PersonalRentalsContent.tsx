@@ -39,7 +39,7 @@ const PersonalRentalsContent = () => {
           </div>
           
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-primary-blue mb-6">Why Rent With Us</h3>
+            <h3 className="text-2xl font-bold mb-6 text-[#601112]">Why Rent With Us</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
               {benefits.map((benefit, index) => <div key={index} className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent-orange mr-2 mt-0.5 flex-shrink-0" />
