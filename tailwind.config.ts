@@ -102,6 +102,9 @@ export default {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(to right, #4c1213, #2b1214)',
         'gradient-secondary': 'linear-gradient(to bottom, #2b1214, #18100f)',
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
       }
     }
   },
