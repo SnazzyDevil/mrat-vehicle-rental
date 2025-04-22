@@ -20,7 +20,7 @@ const BusinessRentalsContent = () => {
   return <section className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">Business Vehicle Rentals</h2>
+          <h2 className="section-title text-[#601112]">Business Vehicle Rentals</h2>
           <p className="section-subtitle mx-auto">
             Reliable and cost-effective transportation solutions for your business logistics and delivery needs.
           </p>
