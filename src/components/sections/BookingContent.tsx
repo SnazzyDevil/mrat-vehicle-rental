@@ -1,6 +1,6 @@
 import BookingWidget from '@/components/ui/BookingWidget';
 const BookingContent = () => {
-  return <section className="section-padding bg-gradient-to-r from-gray-900 to-primary-blue">
+  return <section className="section-padding bg-gradient-to-r from-gray-900 to-primary-blue bg-[#601112]">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Book Your Vehicle</h2>
