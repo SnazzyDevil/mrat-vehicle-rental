@@ -20,7 +20,7 @@ const BenefitsSection = () => {
   return <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-blue mb-4">Why Choose MRAT Vehicle Rental?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#601112]">Why Choose MRAT Vehicle Rental?</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             We pride ourselves on providing reliable vehicles and exceptional service for all your transportation needs.
           </p>
