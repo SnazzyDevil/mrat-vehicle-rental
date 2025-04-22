@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/home/HeroSection';
@@ -15,10 +14,8 @@ import BookingContent from '@/components/sections/BookingContent';
 import AboutContent from '@/components/sections/AboutContent';
 import ContactContent from '@/components/sections/ContactContent';
 import FAQContent from '@/components/sections/FAQContent';
-
 const SinglePage = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar isSinglePage={true} />
       
       {/* Hero Section */}
@@ -63,7 +60,7 @@ const SinglePage = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="bg-accent-orange text-white py-16">
+      <section className="text-white py-16 bg-[#601112]">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Book Your Van?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
@@ -73,10 +70,7 @@ const SinglePage = () => {
             <a href="#booking" className="bg-white text-accent-orange hover:bg-gray-100 font-semibold py-3 px-8 rounded-md transition-colors">
               Book Online
             </a>
-            <a 
-              href="tel:+27612384456" 
-              className="flex items-center text-white hover:text-gray-200 font-semibold"
-            >
+            <a href="tel:+27612384456" className="flex items-center text-white hover:text-gray-200 font-semibold">
               <Phone className="mr-2" /> 061 238 4456
             </a>
           </div>
@@ -94,8 +88,6 @@ const SinglePage = () => {
       </section>
       
       <Footer isSinglePage={true} />
-    </div>
-  );
+    </div>;
 };
-
 export default SinglePage;
