@@ -42,7 +42,7 @@ const FleetPreview = () => {
                 <h3 className="text-xl font-bold text-primary-blue mb-2">{van.name}</h3>
                 <p className="text-gray-600 mb-4">{van.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent-orange font-semibold">{van.price}</span>
+                  <span className="font-semibold text-[#801818]">{van.price}</span>
                   <Link to={van.link}>
                     <Button variant="outline" size="sm" className="flex items-center gap-1 group">
                       View Details 
