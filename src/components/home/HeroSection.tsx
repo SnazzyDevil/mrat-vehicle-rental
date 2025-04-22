@@ -1,11 +1,8 @@
-
 import { Link } from 'react-router-dom';
 import ContactForm from '@/components/ui/ContactForm';
-
 const HeroSection = () => {
-  return (
-    <div className="relative bg-gradient-to-r from-gray-900 to-primary-blue pt-20">
-      <div className="container mx-auto pt-10 pb-20 md:pt-16 md:pb-32 px-4 md:px-6 relative z-10">
+  return <div className="relative bg-gradient-to-r from-gray-900 to-primary-blue pt-20">
+      <div className="container mx-auto pt-10 pb-20 md:pt-16 md:pb-32 px-4 md:px-6 relative z-10 bg-primary-dark">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">Get in Touch With Us Today</h1>
@@ -30,12 +27,10 @@ const HeroSection = () => {
       
       {/* Overlay with transparent gradient */}
       <div className="absolute inset-0 z-0 opacity-20" style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center"
-      }} />
-    </div>
-  );
+      backgroundImage: "url('https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80')",
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }} />
+    </div>;
 };
-
 export default HeroSection;
