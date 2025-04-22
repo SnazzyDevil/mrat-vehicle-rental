@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import BookingWidget from '@/components/ui/BookingWidget';
 const HeroSection = () => {
   return <div className="relative bg-gradient-to-r from-gray-900 to-primary-blue pt-20">
-      <div className="container mx-auto pt-10 pb-20 md:pt-16 md:pb-32 px-4 md:px-6 relative z-10">
+      <div className="container mx-auto pt-10 pb-20 md:pt-16 md:pb-32 px-4 md:px-6 relative z-10 bg-[601112]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-white animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">Reliable Vehicle Rental at Competitive Rates</h1>
