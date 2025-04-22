@@ -1,12 +1,19 @@
-
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock } from 'lucide-react';
-
 interface FooterProps {
   isSinglePage?: boolean;
 }
-
-const Footer = ({ isSinglePage = false }: FooterProps) => {
-  const LinkComponent = ({ path, children, className }: { path: string, children: React.ReactNode, className?: string }) => {
+const Footer = ({
+  isSinglePage = false
+}: FooterProps) => {
+  const LinkComponent = ({
+    path,
+    children,
+    className
+  }: {
+    path: string;
+    children: React.ReactNode;
+    className?: string;
+  }) => {
     if (isSinglePage && path.startsWith('/')) {
       // Convert route paths to anchor links
       const anchor = path.replace('/', '#');
@@ -15,15 +22,13 @@ const Footer = ({ isSinglePage = false }: FooterProps) => {
       return <a href={path} className={className}>{children}</a>;
     }
   };
-  
-  return (
-    <footer className="bg-gray-900 text-white pt-12 pb-6">
+  return <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-white">APEX</span>
+              <span className="text-2xl font-bold text-white">MRAT</span>
               <span className="ml-1 text-xl text-accent-orange font-semibold">VAN HIRE</span>
             </LinkComponent>
             <p className="text-gray-400 mb-4">
@@ -103,16 +108,8 @@ const Footer = ({ isSinglePage = false }: FooterProps) => {
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-gray-400 mb-4">Subscribe to our newsletter for exclusive deals and updates.</p>
             <form className="space-y-2">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-accent-orange"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full bg-accent-orange hover:bg-orange-600 text-white py-2 px-4 rounded transition-colors"
-              >
+              <input type="email" placeholder="Your email address" className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-accent-orange" required />
+              <button type="submit" className="w-full bg-accent-orange hover:bg-orange-600 text-white py-2 px-4 rounded transition-colors">
                 Subscribe
               </button>
             </form>
@@ -132,8 +129,6 @@ const Footer = ({ isSinglePage = false }: FooterProps) => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
