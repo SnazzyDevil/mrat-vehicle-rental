@@ -17,7 +17,7 @@ const PersonalRentalsContent = () => {
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">Personal Vechicle Rentals</h2>
+          <h2 className="section-title">Personal Vehicle Rentals</h2>
           <p className="section-subtitle mx-auto">
             Affordable and convenient van rental solutions for all your personal transportation needs.
           </p>
