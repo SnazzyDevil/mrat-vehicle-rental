@@ -29,7 +29,7 @@ const Footer = ({
           <div>
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center mb-4">
               <span className="text-2xl font-bold text-white">MRAT</span>
-              <span className="ml-1 text-xl text-accent-orange font-semibold">VAN HIRE</span>
+              <span className="ml-1 text-xl font-semibold text-slate-950">VAN HIRE</span>
             </LinkComponent>
             <p className="text-gray-400 mb-4">
               Your trusted partner for reliable and affordable van rentals. Whether for business or personal use, we've got the right vehicle for your needs.
