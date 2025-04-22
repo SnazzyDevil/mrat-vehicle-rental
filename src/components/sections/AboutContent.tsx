@@ -33,7 +33,7 @@ const AboutContent = () => {
   return <section className="section-padding bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">About McKenna's Rental And Transport</h2>
+          <h2 className="section-title text-[#601112]">About McKenna's Rental And Transport</h2>
           <p className="section-subtitle mx-auto">
             Learn about our journey, our values, and why customers choose us for their van rental needs.
           </p>
