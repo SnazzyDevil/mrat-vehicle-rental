@@ -79,7 +79,7 @@ const Navbar = ({
     }
   };
   return <nav className={`fixed top-0 w-full z-50 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'} transition-all duration-300`}>
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 bg-accent-orange">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center">
