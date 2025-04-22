@@ -22,7 +22,7 @@ const Footer = ({
       return <a href={path} className={className}>{children}</a>;
     }
   };
-  return <footer className="bg-gray-900 text-white pt-12 pb-6">
+  return <footer className="text-white pt-12 pb-6 bg-primary-light">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
