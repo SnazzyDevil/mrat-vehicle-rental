@@ -42,7 +42,7 @@ const AboutContent = () => {
         <div className="flex flex-col md:flex-row gap-8 mb-16">
           <div className="md:w-1/2">
             <h3 className="text-2xl font-bold text-primary-blue mb-4">Our Story</h3>
-            <p className="text-gray-700 mb-4">Apex Van Hire was founded in 2018 with a simple mission: to provide reliable, affordable van rental solutions for businesses and individuals in Durban and beyond.</p>
+            <p className="text-gray-700 mb-4">McKenna's rental and transport was founded in 2025 with a simple mission: to provide reliable, affordable van rental solutions for businesses and individuals in Durban and beyond.</p>
             <p className="text-gray-700 mb-4">What started with a modest fleet of just 2 vans has grown into one of the region's most trusted vehicle rental services, now operating over 50 vehicles of various sizes to meet any transportation need.</p>
             <p className="text-gray-700">Our founder, Deshan Naidoo, identified a gap in the market for quality van rentals with exceptional customer service, and this vision continues to drive our business today. We've built our reputation on reliability, transparency, and going the extra mile for our customers.</p>
           </div>
