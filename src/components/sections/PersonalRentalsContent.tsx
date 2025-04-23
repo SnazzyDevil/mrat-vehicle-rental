@@ -35,7 +35,7 @@ const PersonalRentalsContent = () => {
 
         <div className="flex flex-col md:flex-row gap-8 items-center mb-16">
           <div className="md:w-1/2">
-            <img alt="Person loading a van" className="rounded-lg shadow-lg w-full h-80 object-cover" src="/lovable-uploads/b0560789-70cc-41ab-99c7-f2cb621d8e0d.jpg" />
+            <img alt="Person loading a van" className="rounded-lg shadow-lg w-full h-80 object-cover" src="/lovable-uploads/675b5227-da8e-48ca-9960-8c5186e291bc.png" />
           </div>
           
           <div className="md:w-1/2">
