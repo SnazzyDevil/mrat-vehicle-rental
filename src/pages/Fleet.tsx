@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -13,13 +12,12 @@ import {
 } from '@/components/ui/select';
 import { ArrowRight, Truck, Users, Weight, Fuel, Calendar } from 'lucide-react';
 
-// Van data
 const vans = [
   {
     id: 1,
     name: 'Small Panel Van',
     category: 'compact',
-    image: 'https://images.unsplash.com/photo-1609519031670-f5c6ab64858c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    image: '/lovable-uploads/7fe5b0cd-6a7a-4f14-bfc9-78a6364e16da.png',
     description: 'Perfect for small deliveries and urban navigation',
     specs: {
       capacity: '2.9 cubic meters',

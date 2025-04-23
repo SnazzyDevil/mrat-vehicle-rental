@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
 const vans = [{
   id: 1,
   name: 'Compact Van',
-  image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
+  image: '/lovable-uploads/7fe5b0cd-6a7a-4f14-bfc9-78a6364e16da.png',
   description: 'Perfect for small deliveries and urban navigation',
   price: 'From R650/day',
   link: '/fleet?category=compact'
@@ -23,6 +24,7 @@ const vans = [{
   price: 'From R1050/day',
   link: '/fleet?category=large'
 }];
+
 const FleetPreview = () => {
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
@@ -62,4 +64,5 @@ const FleetPreview = () => {
       </div>
     </section>;
 };
+
 export default FleetPreview;
