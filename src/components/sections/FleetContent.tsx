@@ -1,7 +1,5 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-
 const categories = ['all', 'compact', 'medium', 'large'];
 const vans = [{
   id: 1,
@@ -88,68 +86,10 @@ const vans = [{
     transmission: 'Automatic'
   }
 }];
-
 const FleetContent = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedVan, setSelectedVan] = useState<number | null>(null);
   const filteredVans = activeCategory === 'all' ? vans : vans.filter(van => van.category === activeCategory);
-  
-  return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-8 flex flex-wrap gap-2">
-        {categories.map(category => (
-          <Button 
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            variant={activeCategory === category ? "default" : "outline"}
-            className="capitalize"
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredVans.map(van => (
-          <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-48 overflow-hidden">
-              <img 
-                src={van.image} 
-                alt={van.name} 
-                className="w-full h-full object-cover transition-transform hover:scale-105" 
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">{van.name}</h3>
-              <p className="text-gray-600 mb-4">{van.description}</p>
-              <p className="text-[#801818] font-semibold mb-4">{van.price}</p>
-              
-              <Button 
-                onClick={() => setSelectedVan(selectedVan === van.id ? null : van.id)} 
-                variant="outline" 
-                className="w-full"
-              >
-                {selectedVan === van.id ? 'Hide Details' : 'View Specifications'}
-              </Button>
-              
-              {selectedVan === van.id && (
-                <div className="mt-4 p-4 bg-gray-50 rounded-md">
-                  <h4 className="font-semibold mb-2">Specifications:</h4>
-                  <ul className="space-y-1">
-                    <li><span className="font-medium">Load Space:</span> {van.specs.loadSpace}</li>
-                    <li><span className="font-medium">Max Load:</span> {van.specs.maxLoad}</li>
-                    <li><span className="font-medium">Dimensions:</span> {van.specs.dimensions}</li>
-                    <li><span className="font-medium">Fuel Type:</span> {van.specs.fuelType}</li>
-                    <li><span className="font-medium">Transmission:</span> {van.specs.transmission}</li>
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return;
 };
-
 export default FleetContent;
