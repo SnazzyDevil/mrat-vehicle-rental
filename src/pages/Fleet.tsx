@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -136,8 +137,6 @@ const vans = [
   }
 ];
 
-const categories = ['all', 'compact', 'medium', 'large', 'pickup', 'truck'];
-
 const Fleet = () => {
   const [searchParams] = useSearchParams();
   const initialCategory = searchParams.get('category') || 'all';
@@ -188,12 +187,10 @@ const Fleet = () => {
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Vehicles</SelectItem>
+                  <SelectItem value="all">All Vans</SelectItem>
                   <SelectItem value="compact">Compact</SelectItem>
                   <SelectItem value="medium">Medium</SelectItem>
                   <SelectItem value="large">Large</SelectItem>
-                  <SelectItem value="pickup">Pickup</SelectItem>
-                  <SelectItem value="truck">Truck</SelectItem>
                 </SelectContent>
               </Select>
             </div>
