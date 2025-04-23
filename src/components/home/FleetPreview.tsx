@@ -1,6 +1,8 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -22,14 +24,36 @@ const vans = [{
   description: 'Spacious capacity for larger moves and deliveries',
   price: 'From R1050/day',
   link: '/fleet?category=large'
+}, {
+  id: 4,
+  name: 'Nissan NP200',
+  image: '/lovable-uploads/ab7447af-47b1-45b5-9ffc-7e39fb65b1bf.png',
+  description: 'Compact pickup perfect for light loads',
+  price: 'From R550/day',
+  link: '/fleet?category=pickup'
+}, {
+  id: 5,
+  name: 'Isuzu NPR',
+  image: '/lovable-uploads/825faede-f1ae-4aa0-b358-8d433499b5ea.png',
+  description: 'Refrigerated truck for temperature-sensitive cargo',
+  price: 'From R1200/day',
+  link: '/fleet?category=truck'
+}, {
+  id: 6,
+  name: 'Toyota Hilux',
+  image: '/lovable-uploads/f348a1cd-85e9-4602-a799-8da71958a343.png',
+  description: 'Robust pickup for tough jobs and terrain',
+  price: 'From R850/day',
+  link: '/fleet?category=pickup'
 }];
+
 const FleetPreview = () => {
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title text-[#601112]">Our Fleet</h2>
           <p className="section-subtitle mx-auto">
-            We offer a wide range of vans to suit your needs, from compact vans for small deliveries to large vans for bigger moves.
+            We offer a wide range of vehicles to suit your needs, from compact vans to refrigerated trucks.
           </p>
         </div>
 
@@ -53,13 +77,8 @@ const FleetPreview = () => {
               </div>
             </div>)}
         </div>
-
-        <div className="mt-12 text-center">
-          <Link to="/fleet">
-            
-          </Link>
-        </div>
       </div>
     </section>;
 };
+
 export default FleetPreview;
