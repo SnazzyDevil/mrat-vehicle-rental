@@ -8,7 +8,7 @@ import { Clock, Shield, Truck, Users, Award, ThumbsUp } from 'lucide-react';
 const About = () => {
   // Company stats
   const stats = [
-    { value: '10+', label: 'Years Experience' },
+    { value: '20+', label: 'Years Experience' },
     { value: '500+', label: 'Vehicles' },
     { value: '10,000+', label: 'Happy Customers' },
     { value: '5', label: 'Service Centers' }

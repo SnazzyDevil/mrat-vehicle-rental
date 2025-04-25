@@ -141,6 +141,18 @@ const Fleet = () => {
   
   const [categoryFilter, setCategoryFilter] = useState(initialCategory);
   const [sortBy, setSortBy] = useState('name');
+  const [uploadedImages, setUploadedImages] = useState<{[key: number]: string}>({});
+  
+  const handleImageUpload = (vanId: number, file: File) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setUploadedImages(prev => ({
+        ...prev,
+        [vanId]: reader.result as string
+      }));
+    };
+    reader.readAsDataURL(file);
+  };
 
   const filteredVans = categoryFilter === 'all' 
     ? vans 
@@ -208,10 +220,10 @@ const Fleet = () => {
               </Select>
             </div>
           </div>
-        </div>
-      </div>
-      
-      {/* Fleet Listing */}
+                <img 
+                  src={uploadedImages[van.id] || van.image} 
+                  alt={van.name} 
+                  className="w-full h-64 md:h-full object-cover" 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {sortedVans.map((van) => (
@@ -219,12 +231,68 @@ const Fleet = () => {
               key={van.id} 
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row"
             >
-              <div className="md:w-2/5">
+              <div className="md:w-2/5 relative">
                 <img 
                   src={van.image} 
                   alt={van.name} 
                   className="w-full h-64 md:h-full object-cover" 
                 />
+                {van.category === 'compact' && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <label htmlFor={`compact-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
+                      Upload Image
+                      <input 
+                        id={`compact-van-upload-${van.id}`} 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            // Handle file upload logic here
+                            console.log('Compact van image uploaded:', e.target.files[0]);
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                )}
+                {van.category === 'medium' && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <label htmlFor={`medium-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
+                      Upload Image
+                      <input 
+                        id={`medium-van-upload-${van.id}`} 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            handleImageUpload(van.id, e.target.files[0]);
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                )}
+                {van.category === 'large' && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <label htmlFor={`large-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
+                      Upload Image
+                      <input 
+                        id={`large-van-upload-${van.id}`} 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        onChange={(e) => {
+                          if (e.target.files && e.target.files[0]) {
+                            // Handle file upload logic here
+                            console.log('Large van image uploaded:', e.target.files[0]);
+                          }
+                        }}
+                      />
+                    </label>
+                  </div>
+                )}
               </div>
               <div className="md:w-3/5 p-6 flex flex-col">
                 <div>
@@ -295,6 +363,79 @@ const Fleet = () => {
             <p className="text-lg text-gray-600">No vans found matching your criteria.</p>
           </div>
         )}
+      </div>
+      
+      {/* Contact Form Section */}
+      <div className="bg-gray-100 py-12">
+        <div className="container mx-auto px-4">
+          <div className="bg-white rounded-lg shadow-md p-8 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-primary-blue mb-6">Contact Us</h2>
+            <p className="text-gray-600 mb-6">Have questions about our fleet or need assistance? Fill out the form below and our team will get back to you as soon as possible.</p>
+            
+            <form className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" 
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" 
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" 
+                  placeholder="Your phone number"
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                <input 
+                  type="text" 
+                  id="subject" 
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" 
+                  placeholder="What is this regarding?"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                <textarea 
+                  id="message" 
+                  rows={4} 
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-blue focus:border-primary-blue" 
+                  placeholder="Your message here..."
+                  required
+                ></textarea>
+              </div>
+              
+              <div>
+                <Button type="submit" className="w-full md:w-auto btn-accent">
+                  Send Message
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       
       <Footer />
