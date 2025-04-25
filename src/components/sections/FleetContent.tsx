@@ -4,7 +4,7 @@ const categories = ['all', 'compact', 'medium', 'large'];
 const vans = [{
   id: 1,
   name: 'Compact Van',
-  image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
+  image: 'https://drive.google.com/file/d/1ikoDoeTp-oQLEqt0Xsk_ajUIJJfgvmWF/view?usp=drive_link',
   description: 'Perfect for small deliveries and urban navigation. Ideal for small moves and deliveries in tight urban spaces.',
   price: 'From R650/day',
   category: 'compact',
@@ -18,7 +18,7 @@ const vans = [{
 }, {
   id: 2,
   name: 'Medium Van',
-  image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
+  image: 'https://drive.google.com/file/d/1pzlcR8G83MpwOYpzFPV7Ehq40-9_4NBW/view?usp=drive_link',
   description: 'Ideal for medium loads and furniture moving. Perfect balance of space and maneuverability.',
   price: 'From R850/day',
   category: 'medium',
@@ -32,7 +32,7 @@ const vans = [{
 }, {
   id: 3,
   name: 'Large Van',
-  image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
+  image: 'https://drive.google.com/file/d/1zWMO19-FEDW1R-IwVXkPxPSqspT2ABXb/view?usp=drive_link',
   description: 'Spacious capacity for larger moves and deliveries. Ideal for moving home or large office relocations.',
   price: 'From R1050/day',
   category: 'large',
