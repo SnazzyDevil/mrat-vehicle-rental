@@ -17,7 +17,7 @@ const vans = [
     id: 1,
     name: 'Small Panel Van',
     category: 'compact',
-    image: '/lovable-uploads/7fe5b0cd-6a7a-4f14-bfc9-78a6364e16da.png',
+    image: 'https://drive.google.com/file/d/1ikoDoeTp-oQLEqt0Xsk_ajUIJJfgvmWF/view?usp=drive_link',
     description: 'Perfect for small deliveries and urban navigation',
     specs: {
       capacity: '2.9 cubic meters',
@@ -37,7 +37,7 @@ const vans = [
     id: 2,
     name: 'Medium Panel Van',
     category: 'medium',
-    image: 'https://images.unsplash.com/photo-1672590858482-a8ed5532d771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://drive.google.com/file/d/1pzlcR8G83MpwOYpzFPV7Ehq40-9_4NBW/view?usp=drive_link',
     description: 'Versatile van for medium-sized loads and deliveries',
     specs: {
       capacity: '5.7 cubic meters',
@@ -57,7 +57,7 @@ const vans = [
     id: 3,
     name: 'Large Panel Van',
     category: 'large',
-    image: 'https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
+    image: 'https://drive.google.com/file/d/1zWMO19-FEDW1R-IwVXkPxPSqspT2ABXb/view?usp=drive_link',
     description: 'Spacious capacity for larger moves and deliveries',
     specs: {
       capacity: '11.5 cubic meters',
