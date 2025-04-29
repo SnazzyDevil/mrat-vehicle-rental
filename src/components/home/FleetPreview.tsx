@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -24,7 +23,6 @@ const vans = [{
   price: 'From R1050/day',
   link: '/fleet?category=large'
 }];
-
 const FleetPreview = () => {
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
@@ -37,7 +35,7 @@ const FleetPreview = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {vans.map(van => <div key={van.id} className="bg-white rounded-lg overflow-hidden shadow-md card-hover">
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden bg-red-900">
                 <img src={van.image} alt={van.name} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
               </div>
               <div className="p-6">
@@ -64,5 +62,4 @@ const FleetPreview = () => {
       </div>
     </section>;
 };
-
 export default FleetPreview;
