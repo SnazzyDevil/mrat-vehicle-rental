@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
+import Fleet from "./pages/Fleet";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SinglePage />} />
+          <Route path="/fleet" element={<Fleet />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

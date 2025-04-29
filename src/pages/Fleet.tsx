@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -220,10 +221,9 @@ const Fleet = () => {
               </Select>
             </div>
           </div>
-                <img 
-                  src={uploadedImages[van.id] || van.image} 
-                  alt={van.name} 
-                  className="w-full h-64 md:h-full object-cover" 
+        </div>
+      </div>
+      
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {sortedVans.map((van) => (
@@ -233,66 +233,26 @@ const Fleet = () => {
             >
               <div className="md:w-2/5 relative">
                 <img 
-                  src={van.image} 
+                  src={uploadedImages[van.id] || van.image} 
                   alt={van.name} 
                   className="w-full h-64 md:h-full object-cover" 
                 />
-                {van.category === 'compact' && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <label htmlFor={`compact-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
-                      Upload Image
-                      <input 
-                        id={`compact-van-upload-${van.id}`} 
-                        type="file" 
-                        accept="image/*" 
-                        className="hidden" 
-                        onChange={(e) => {
-                          if (e.target.files && e.target.files[0]) {
-                            // Handle file upload logic here
-                            console.log('Compact van image uploaded:', e.target.files[0]);
-                          }
-                        }}
-                      />
-                    </label>
-                  </div>
-                )}
-                {van.category === 'medium' && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <label htmlFor={`medium-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
-                      Upload Image
-                      <input 
-                        id={`medium-van-upload-${van.id}`} 
-                        type="file" 
-                        accept="image/*" 
-                        className="hidden" 
-                        onChange={(e) => {
-                          if (e.target.files && e.target.files[0]) {
-                            handleImageUpload(van.id, e.target.files[0]);
-                          }
-                        }}
-                      />
-                    </label>
-                  </div>
-                )}
-                {van.category === 'large' && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <label htmlFor={`large-van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
-                      Upload Image
-                      <input 
-                        id={`large-van-upload-${van.id}`} 
-                        type="file" 
-                        accept="image/*" 
-                        className="hidden" 
-                        onChange={(e) => {
-                          if (e.target.files && e.target.files[0]) {
-                            // Handle file upload logic here
-                            console.log('Large van image uploaded:', e.target.files[0]);
-                          }
-                        }}
-                      />
-                    </label>
-                  </div>
-                )}
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <label htmlFor={`van-upload-${van.id}`} className="cursor-pointer bg-white text-primary-blue px-4 py-2 rounded-md hover:bg-gray-100 transition">
+                    Upload Image
+                    <input 
+                      id={`van-upload-${van.id}`} 
+                      type="file" 
+                      accept="image/*" 
+                      className="hidden" 
+                      onChange={(e) => {
+                        if (e.target.files && e.target.files[0]) {
+                          handleImageUpload(van.id, e.target.files[0]);
+                        }
+                      }}
+                    />
+                  </label>
+                </div>
               </div>
               <div className="md:w-3/5 p-6 flex flex-col">
                 <div>
