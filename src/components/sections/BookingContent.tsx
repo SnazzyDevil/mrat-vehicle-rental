@@ -1,40 +1,170 @@
-import BookingWidget from '@/components/ui/BookingWidget';
+
+import { useState } from 'react';
+import { CalendarIcon } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
+
 const BookingContent = () => {
-  return <section className="bg-[#601112]">
+  const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
+  const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
+  
+  return (
+    <section className="bg-[#601112]">
       <div className="container mx-auto py-[42px]">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Book Your Vehicle</h2>
-          <p className="text-lg text-gray-200 max-w-3xl mx-auto">
-            Complete the booking form below to reserve your van. We'll confirm your booking promptly.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Easy Booking Process</h2>
         </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
-          <BookingWidget className="w-full" />
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center text-white">
+          {/* Step 1 */}
+          <div className="flex flex-col items-center">
+            <div className="bg-red-600 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <span className="text-white text-xl font-bold">1</span>
+            </div>
+            <h3 className="font-bold text-lg mb-2">Choose Your Vehicle</h3>
+            <p>Select from our wide range of vehicles to suit your needs and budget.</p>
+          </div>
 
-        <div className="mt-12 text-center text-white">
-          <h3 className="text-xl font-semibold mb-4">Need Help With Your Booking?</h3>
-          <p className="mb-6">
-            Our customer service team is available to assist you with any questions or special requirements.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="tel:+27612384456" className="flex items-center gap-2 bg-white text-primary-blue hover:bg-gray-100 font-semibold py-2 px-6 rounded-md transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              Call Us: 061 238 4456
-            </a>
-            <a href="#contact" className="flex items-center gap-2 border border-white text-white hover:bg-white hover:bg-opacity-10 font-semibold py-2 px-6 rounded-md transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              Contact Us
-            </a>
+          {/* Step 2 */}
+          <div className="flex flex-col items-center">
+            <div className="bg-red-600 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <span className="text-white text-xl font-bold">2</span>
+            </div>
+            <h3 className="font-bold text-lg mb-2">Select Dates & Location</h3>
+            <p>Pick your rental period and preferred pickup location.</p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="flex flex-col items-center">
+            <div className="bg-red-600 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+              <span className="text-white text-xl font-bold">3</span>
+            </div>
+            <h3 className="font-bold text-lg mb-2">Complete Booking</h3>
+            <p>Provide your details and payment information to confirm your booking.</p>
           </div>
         </div>
+
+        {/* Booking Form */}
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden p-8">
+          <h3 className="text-2xl font-bold text-[#601112] mb-6">Start Your Booking</h3>
+          
+          <form className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* First Name */}
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <Input id="firstName" className="w-full" />
+              </div>
+              
+              {/* Last Name */}
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                <Input id="lastName" className="w-full" />
+              </div>
+            </div>
+            
+            {/* Email Address */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <div className="relative">
+                <Input id="email" type="email" className="w-full" />
+                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10s10-4.477 10-10C20 4.477 15.523 0 10 0zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
+            {/* Phone Number */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <Input id="phone" type="tel" className="w-full" />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Pick-Up Date */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Pick-Up Date</label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal",
+                        !pickupDate && "text-muted-foreground"
+                      )}
+                    >
+                      {pickupDate ? format(pickupDate, "PPP") : <span>Pick a date</span>}
+                      <CalendarIcon className="ml-auto h-4 w-4" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={pickupDate}
+                      onSelect={setPickupDate}
+                      initialFocus
+                      disabled={(date) => date < new Date()}
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+              
+              {/* Return Date */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Return Date</label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={cn(
+                        "w-full justify-start text-left font-normal",
+                        !returnDate && "text-muted-foreground"
+                      )}
+                    >
+                      {returnDate ? format(returnDate, "PPP") : <span>Pick a date</span>}
+                      <CalendarIcon className="ml-auto h-4 w-4" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={returnDate}
+                      onSelect={setReturnDate}
+                      initialFocus
+                      disabled={(date) => date < (pickupDate || new Date())}
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div>
+            
+            {/* Vehicle Preference */}
+            <div>
+              <label htmlFor="vehicle" className="block text-sm font-medium text-gray-700 mb-1">Vehicle Preference</label>
+              <Input id="vehicle" className="w-full" />
+            </div>
+            
+            {/* Submit Button */}
+            <Button 
+              type="submit" 
+              className="w-full bg-[#601112] text-white hover:bg-[#701112] transition-colors py-6"
+            >
+              Submit Booking Request
+            </Button>
+          </form>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default BookingContent;
