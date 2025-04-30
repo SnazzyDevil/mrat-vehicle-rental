@@ -124,7 +124,7 @@ const BookingContent = () => {
             </div>
             
             {/* Submit Button */}
-            <Button type="submit" className="w-full bg-[#601112] text-white hover:bg-[#701112] transition-colors py-6">
+            <Button type="submit" className="w-full text-white transition-colors py-6 bg-red-600 hover:bg-red-500">
               Submit Booking Request
             </Button>
           </form>
