@@ -114,7 +114,7 @@ const FleetContent = () => {
                   <Info size={16} className="mr-2" />
                   Specifications
                 </Button>
-                <Button>Book Now</Button>
+                <Button className="text-slate-50 bg-red-600 hover:bg-red-500">Book Now</Button>
               </CardFooter>
               
               {/* Specifications Section */}
