@@ -100,7 +100,7 @@ const Navbar = ({
                           {dropdownItem.title}
                         </LinkComponent>)}
                     </div>}
-                </div> : <LinkComponent key={item.title} path={item.path} className="px-3 py-2 text-accent-orange hover:text-primary-blue">
+                </div> : <LinkComponent key={item.title} path={item.path} className="px-3 py-2 text-accent-white hover:text-primary-blue">
                   {item.title}
                 </LinkComponent>)}
           </div>
