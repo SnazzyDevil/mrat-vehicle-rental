@@ -70,7 +70,7 @@ const PersonalRentalsContent = () => {
             </div>
             
             <div className="text-center">
-              <div className="bg-accent-orange rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mx-auto mb-3">3</div>
+              <div className="rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mx-auto mb-3 bg-red-600">3</div>
               <h4 className="font-semibold mb-2">Complete Booking</h4>
               <p className="text-gray-600 text-sm">Provide your details and confirm your booking</p>
             </div>
