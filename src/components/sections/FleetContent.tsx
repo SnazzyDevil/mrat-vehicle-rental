@@ -1,11 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Upload, Info } from 'lucide-react';
-
 const categories = ['all', 'compact', 'medium', 'large'];
-
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -49,16 +46,13 @@ const vans = [{
     transmission: 'Automatic'
   }
 }];
-
 const FleetContent = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedVan, setSelectedVan] = useState<number | null>(null);
   const [customImages, setCustomImages] = useState<{
     [key: number]: string;
   }>({});
-  
   const filteredVans = activeCategory === 'all' ? vans : vans.filter(van => van.category === activeCategory);
-  
   const handleImageUpload = (vanId: number, event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -72,11 +66,10 @@ const FleetContent = () => {
       reader.readAsDataURL(file);
     }
   };
-
   return <div className="bg-gray-50 py-12 px-[7px] my-0 mx-0">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#601112] mb-4">Our Fleet</h2>
+          <h2 className="text-3xl font-bold text-[#601112] mb-4 my-[37px]">Our Fleet</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Browse our range of vans available for hire. Select a category to filter or view details of each vehicle.
           </p>
@@ -157,5 +150,4 @@ const FleetContent = () => {
       </div>
     </div>;
 };
-
 export default FleetContent;
