@@ -58,7 +58,7 @@ const PersonalRentalsContent = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center">
-              <div className="bg-accent-orange rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mx-auto mb-3">1</div>
+              <div className="rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mx-auto mb-3 bg-red-600">1</div>
               <h4 className="font-semibold mb-2">Choose Your Van</h4>
               <p className="text-gray-600 text-sm">Select the right van size for your needs</p>
             </div>

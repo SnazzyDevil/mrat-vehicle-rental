@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { CalendarIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -7,13 +6,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
-
 const BookingContent = () => {
   const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
   const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
-  
-  return (
-    <section className="bg-[#601112]">
+  return <section className="bg-[#601112]">
       <div className="container mx-auto py-[42px]">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Easy Booking Process</h2>
@@ -22,7 +18,7 @@ const BookingContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 text-center text-white">
           {/* Step 1 */}
           <div className="flex flex-col items-center">
-            <div className="bg-red-600 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+            <div className="bg-red-600 rounded-full w-14 h-14 flex items-center justify-center mb-4 px-[2px]">
               <span className="text-white text-xl font-bold">1</span>
             </div>
             <h3 className="font-bold text-lg mb-2">Choose Your Vehicle</h3>
@@ -93,26 +89,13 @@ const BookingContent = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Pick-Up Date</label>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal",
-                        !pickupDate && "text-muted-foreground"
-                      )}
-                    >
+                    <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !pickupDate && "text-muted-foreground")}>
                       {pickupDate ? format(pickupDate, "PPP") : <span>Pick a date</span>}
                       <CalendarIcon className="ml-auto h-4 w-4" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={pickupDate}
-                      onSelect={setPickupDate}
-                      initialFocus
-                      disabled={(date) => date < new Date()}
-                      className={cn("p-3 pointer-events-auto")}
-                    />
+                    <Calendar mode="single" selected={pickupDate} onSelect={setPickupDate} initialFocus disabled={date => date < new Date()} className={cn("p-3 pointer-events-auto")} />
                   </PopoverContent>
                 </Popover>
               </div>
@@ -122,26 +105,13 @@ const BookingContent = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Return Date</label>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={cn(
-                        "w-full justify-start text-left font-normal",
-                        !returnDate && "text-muted-foreground"
-                      )}
-                    >
+                    <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !returnDate && "text-muted-foreground")}>
                       {returnDate ? format(returnDate, "PPP") : <span>Pick a date</span>}
                       <CalendarIcon className="ml-auto h-4 w-4" />
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={returnDate}
-                      onSelect={setReturnDate}
-                      initialFocus
-                      disabled={(date) => date < (pickupDate || new Date())}
-                      className={cn("p-3 pointer-events-auto")}
-                    />
+                    <Calendar mode="single" selected={returnDate} onSelect={setReturnDate} initialFocus disabled={date => date < (pickupDate || new Date())} className={cn("p-3 pointer-events-auto")} />
                   </PopoverContent>
                 </Popover>
               </div>
@@ -154,17 +124,12 @@ const BookingContent = () => {
             </div>
             
             {/* Submit Button */}
-            <Button 
-              type="submit" 
-              className="w-full bg-[#601112] text-white hover:bg-[#701112] transition-colors py-6"
-            >
+            <Button type="submit" className="w-full bg-[#601112] text-white hover:bg-[#701112] transition-colors py-6">
               Submit Booking Request
             </Button>
           </form>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BookingContent;
