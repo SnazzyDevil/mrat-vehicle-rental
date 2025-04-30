@@ -84,7 +84,7 @@ const Navbar = ({
           <div className="flex-shrink-0">
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center">
               <span className="text-2xl font-bold text-slate-50">MRAT</span>
-              <span className="ml-1 text-xl text-accent-orange font-semibold">VEHICLE RENTAL</span>
+              <span className="ml-1 text-xl text-accent-red font-semibold">VEHICLE RENTAL</span>
             </LinkComponent>
           </div>
           
