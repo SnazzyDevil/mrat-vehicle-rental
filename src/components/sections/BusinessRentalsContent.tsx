@@ -28,7 +28,7 @@ const BusinessRentalsContent = () => {
 
         <div className="flex flex-col md:flex-row gap-8 mb-16">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-bold text-primary-blue mb-4">How It Works</h3>
+            <h3 className="text-2xl font-bold mb-4 text-red-600">How It Works</h3>
             <div className="bg-gray-50 p-6 rounded-lg mb-6">
               <ol className="list-decimal list-inside space-y-3 text-gray-700">
                 <li><span className="font-medium">Contact our business team</span> to discuss your specific requirements</li>
