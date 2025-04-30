@@ -49,7 +49,8 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					orange: '#F97316'
+					orange: '#F97316',
+					red: '#ea384c'  // Added accent-red color
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
