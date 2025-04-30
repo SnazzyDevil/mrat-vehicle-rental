@@ -116,7 +116,7 @@
   }
   
   .btn-accent {
-    @apply bg-accent-orange hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
+    @apply bg-accent-red hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
   }
   
   .section-padding {
