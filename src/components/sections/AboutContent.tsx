@@ -62,10 +62,10 @@ const AboutContent = () => {
         <h3 className="text-2xl font-bold mb-6 text-center text-[#601112]">Our Values</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {values.map((value, index) => <div key={index} className="bg-gray-50 rounded-lg p-6 text-center shadow-md">
-              <div className="bg-primary-light bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
-                <value.icon className="w-8 h-8 text-primary-blue bg-red-200" />
+              <div className="bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto bg-red-600">
+                <value.icon className="w-8 h-8 text-primary-blue bg-red-600" />
               </div>
-              <h4 className="text-lg font-semibold mb-3">{value.title}</h4>
+              <h4 className="text-lg font-semibold mb-3 text-[#601112]">{value.title}</h4>
               <p className="text-gray-600 text-sm">{value.description}</p>
             </div>)}
         </div>
