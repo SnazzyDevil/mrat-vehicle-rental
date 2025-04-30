@@ -1,8 +1,11 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Upload, Info } from 'lucide-react';
+
 const categories = ['all', 'compact', 'medium', 'large'];
+
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -45,56 +48,17 @@ const vans = [{
     fuelType: 'Diesel',
     transmission: 'Automatic'
   }
-}, {
-  id: 4,
-  name: 'Small City Van',
-  image: '/lovable-uploads/52a6678c-4975-40eb-9e10-d0cc68c65dd5.png',
-  description: 'Compact and fuel-efficient for city deliveries. Easy to park and navigate through busy streets.',
-  price: 'From R550/day',
-  category: 'compact',
-  specs: {
-    loadSpace: '2.5 cubic meters',
-    maxLoad: '650kg',
-    dimensions: '4.0m x 1.7m x 1.8m',
-    fuelType: 'Petrol',
-    transmission: 'Manual'
-  }
-}, {
-  id: 5,
-  name: 'Moving Van Plus',
-  image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
-  description: 'Enhanced medium van with extra features for comfortable longer journeys.',
-  price: 'From R950/day',
-  category: 'medium',
-  specs: {
-    loadSpace: '7.2 cubic meters',
-    maxLoad: '1300kg',
-    dimensions: '5.5m x 2.1m x 2.2m',
-    fuelType: 'Diesel',
-    transmission: 'Manual'
-  }
-}, {
-  id: 6,
-  name: 'Extra Large Mover',
-  image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
-  description: 'Our largest van with maximum capacity for big moves and commercial use.',
-  price: 'From R1250/day',
-  category: 'large',
-  specs: {
-    loadSpace: '13.5 cubic meters',
-    maxLoad: '1800kg',
-    dimensions: '7.2m x 2.3m x 2.5m',
-    fuelType: 'Diesel',
-    transmission: 'Automatic'
-  }
 }];
+
 const FleetContent = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedVan, setSelectedVan] = useState<number | null>(null);
   const [customImages, setCustomImages] = useState<{
     [key: number]: string;
   }>({});
+  
   const filteredVans = activeCategory === 'all' ? vans : vans.filter(van => van.category === activeCategory);
+  
   const handleImageUpload = (vanId: number, event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
@@ -108,6 +72,7 @@ const FleetContent = () => {
       reader.readAsDataURL(file);
     }
   };
+
   return <div className="bg-gray-50 py-12 px-[7px] my-0 mx-0">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
@@ -192,4 +157,5 @@ const FleetContent = () => {
       </div>
     </div>;
 };
+
 export default FleetContent;
