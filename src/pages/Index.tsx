@@ -71,7 +71,7 @@ const Index = () => {
               </div>
               <button 
                 type="submit" 
-                className="w-full bg-accent-orange text-white hover:bg-accent-orange/90 font-semibold py-3 px-8 rounded-md transition-colors"
+                className="w-full bg-accent-red text-white hover:bg-accent-red/90 font-semibold py-3 px-8 rounded-md transition-colors"
               >
                 Send Message
               </button>
