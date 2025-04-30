@@ -1,7 +1,7 @@
 import { Award, Users, ThumbsUp, Truck } from 'lucide-react';
 const AboutContent = () => {
   const stats = [{
-    value: '5+',
+    value: '20+',
     label: 'Years Experience'
   }, {
     value: '1000+',
