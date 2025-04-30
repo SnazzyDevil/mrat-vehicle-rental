@@ -69,7 +69,7 @@ const FleetContent = () => {
   return <div className="bg-gray-50 py-12 px-[7px] my-0 mx-0">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#601112] mb-4 my-[37px]">Our Fleet</h2>
+          <h2 className="text-3xl font-bold text-[#601112] mb-4 py-[9px] px-0 mx-0 my-[9px]">Our Fleet</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Browse our range of vans available for hire. Select a category to filter or view details of each vehicle.
           </p>
