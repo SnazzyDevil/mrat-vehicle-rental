@@ -25,7 +25,7 @@ const PersonalRentalsContent = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {useCases.map((useCase, index) => <div key={index} className="bg-white rounded-lg p-6 shadow-md card-hover">
-              <div className="bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto bg-red-200">
+              <div className="bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto bg-red-600">
                 <useCase.icon className="w-8 h-8 text-primary-blue" />
               </div>
               <h3 className="text-xl font-semibold text-center mb-3">{useCase.title}</h3>
