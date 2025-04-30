@@ -118,7 +118,7 @@ const ContactContent = () => {
                   <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Your message" required />
                 </div>
                 
-                <Button type="submit" className="btn-primary w-full">
+                <Button type="submit" className="btn-primary w-full bg-red-600 hover:bg-red-500">
                   Send Message
                 </Button>
               </form>
