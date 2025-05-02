@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
 import Fleet from "./pages/Fleet";
+import AllVehicles from "./pages/AllVehicles";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<SinglePage />} />
           <Route path="/fleet" element={<Fleet />} />
+          <Route path="/all-vehicles" element={<AllVehicles />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
