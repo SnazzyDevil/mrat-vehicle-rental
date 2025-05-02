@@ -1,8 +1,6 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -25,32 +23,16 @@ const vans = [{
   price: 'From R1050/day',
   link: '/fleet?category=large'
 }];
-
 const FleetPreview = () => {
   return <section className="py-16 bg-gray-50">
       <div className="container mx-auto">
+        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {vans.map(van => (
-            <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={van.image} 
-                  alt={van.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-xl font-bold mb-2">{van.name}</h3>
-                <p className="text-gray-600 mb-3">{van.description}</p>
-                <p className="font-semibold text-primary-maroon mb-4">{van.price}</p>
-                <Link to={van.link} className="inline-block">
-                  <Button variant="outline" className="border-primary-maroon text-primary-maroon hover:bg-primary-maroon hover:text-white">
-                    View Details
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          ))}
+          {vans.map(van => <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
+              
+              
+            </div>)}
         </div>
 
         <div className="mt-12 text-center">
@@ -63,5 +45,4 @@ const FleetPreview = () => {
       </div>
     </section>;
 };
-
 export default FleetPreview;
