@@ -30,6 +30,14 @@ const FleetPreview = () => {
   return (
     <section className="bg-gray-50 mx-[51px] my-0 py-[2px] px-0">
       <div className="container mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-primary-maroon mb-3">Our Fleet</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            Browse our range of vans available for hire. Select a category to filter or view
+            details of each vehicle.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {vans.map(van => (
             <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
