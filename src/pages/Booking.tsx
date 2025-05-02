@@ -6,21 +6,21 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { 
+import {
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle 
+  CardTitle
 } from '@/components/ui/card';
 import {
   Tabs,
@@ -112,7 +112,7 @@ const extras = [
 const Booking = () => {
   const [searchParams] = useSearchParams();
   const initialVanId = searchParams.get('vanId') ? parseInt(searchParams.get('vanId') || '0') : null;
-  
+
   const [activeStep, setActiveStep] = useState(0);
   const [selectedVan, setSelectedVan] = useState<number | null>(initialVanId);
   const [pickupLocation, setPickupLocation] = useState(searchParams.get('pickup') || '');
@@ -126,7 +126,7 @@ const Booking = () => {
   const [pickupTime, setPickupTime] = useState(searchParams.get('pickupTime') || '');
   const [returnTime, setReturnTime] = useState(searchParams.get('returnTime') || '');
   const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
-  
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -138,9 +138,9 @@ const Booking = () => {
     licenseNumber: '',
     agreeTerms: false
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // Calculate rental duration and total cost
   const calculateDuration = () => {
     if (!pickupDate || !returnDate) return 0;
@@ -148,20 +148,20 @@ const Booking = () => {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return Math.max(1, diffDays); // Minimum 1 day
   };
-  
+
   const calculateTotal = () => {
     if (!selectedVan) return 0;
     const van = vans.find(van => van.id === selectedVan);
     if (!van) return 0;
-    
+
     const duration = calculateDuration();
     const basePrice = van.price * duration;
-    
+
     const extrasTotal = selectedExtras.reduce((total, extraId) => {
       const extra = extras.find(extra => extra.id === extraId);
       return total + (extra ? extra.price : 0);
     }, 0);
-    
+
     return basePrice + extrasTotal;
   };
 
@@ -189,7 +189,7 @@ const Booking = () => {
           return false;
         }
         return true;
-      
+
       case 1: // Dates and locations
         if (!pickupLocation || !dropoffLocation) {
           toast({
@@ -199,7 +199,7 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         if (!pickupDate || !returnDate) {
           toast({
             title: "Missing dates",
@@ -208,7 +208,7 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         if (!pickupTime || !returnTime) {
           toast({
             title: "Missing times",
@@ -217,12 +217,12 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         return true;
-      
+
       case 2: // Extras
         return true; // Extras are optional
-      
+
       case 3: // Personal details
         const {
           firstName,
@@ -231,7 +231,7 @@ const Booking = () => {
           phone,
           agreeTerms
         } = formData;
-        
+
         if (!firstName || !lastName || !email || !phone) {
           toast({
             title: "Missing personal details",
@@ -240,7 +240,7 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         if (!agreeTerms) {
           toast({
             title: "Terms and conditions",
@@ -249,7 +249,7 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
           toast({
@@ -259,26 +259,26 @@ const Booking = () => {
           });
           return false;
         }
-        
+
         return true;
-      
+
       default:
         return true;
     }
   };
-  
+
   const handleSubmit = async () => {
     if (validateCurrentStep()) {
       setIsSubmitting(true);
-      
+
       try {
         // Simulate API request
         await new Promise(resolve => setTimeout(resolve, 2000));
-        
+
         // Success - show confirmation
         setActiveStep(5);
         window.scrollTo(0, 0);
-        
+
         toast({
           title: "Booking successful!",
           description: "Your van booking has been confirmed.",
@@ -294,15 +294,15 @@ const Booking = () => {
       }
     }
   };
-  
+
   const handleExtraToggle = (extraId: string) => {
-    setSelectedExtras(prev => 
-      prev.includes(extraId) 
-        ? prev.filter(id => id !== extraId) 
+    setSelectedExtras(prev =>
+      prev.includes(extraId)
+        ? prev.filter(id => id !== extraId)
         : [...prev, extraId]
     );
   };
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -317,27 +317,27 @@ const Booking = () => {
       const vanId = parseInt(searchParams.get('vanId') || '0');
       setSelectedVan(vanId);
     }
-    
+
     if (searchParams.get('pickup')) {
       setPickupLocation(searchParams.get('pickup') || '');
     }
-    
+
     if (searchParams.get('dropoff')) {
       setDropoffLocation(searchParams.get('dropoff') || '');
     }
-    
+
     if (searchParams.get('pickupDate')) {
       setPickupDate(new Date(searchParams.get('pickupDate') || ''));
     }
-    
+
     if (searchParams.get('returnDate')) {
       setReturnDate(new Date(searchParams.get('returnDate') || ''));
     }
-    
+
     if (searchParams.get('pickupTime')) {
       setPickupTime(searchParams.get('pickupTime') || '');
     }
-    
+
     if (searchParams.get('returnTime')) {
       setReturnTime(searchParams.get('returnTime') || '');
     }
@@ -351,19 +351,19 @@ const Booking = () => {
             <div>
               <h2 className="text-2xl font-bold mb-4">Select a Vehicle</h2>
               <p className="text-gray-600 mb-6">Choose the van that best suits your needs.</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 {vans.map(van => (
-                  <div 
-                    key={van.id} 
+                  <div
+                    key={van.id}
                     className={`border rounded-lg overflow-hidden cursor-pointer transition-all ${selectedVan === van.id ? 'ring-2 ring-primary-blue shadow-md' : 'hover:shadow-md'}`}
                     onClick={() => setSelectedVan(van.id)}
                   >
                     <div className="h-48 overflow-hidden">
-                      <img 
-                        src={van.image} 
-                        alt={van.name} 
-                        className="w-full h-full object-cover" 
+                      <img
+                        src={van.image}
+                        alt={van.name}
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="p-4">
@@ -375,10 +375,10 @@ const Booking = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="flex justify-end">
-              <Button 
-                onClick={handleNextStep} 
+              <Button
+                onClick={handleNextStep}
                 className="btn-primary"
               >
                 Continue to Dates & Locations <ChevronRight className="ml-2 h-4 w-4" />
@@ -386,14 +386,14 @@ const Booking = () => {
             </div>
           </div>
         );
-      
+
       case 1:
         return (
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Dates & Locations</h2>
               <p className="text-gray-600 mb-6">Please select your pickup and return details.</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Pickup Location */}
                 <div className="space-y-2">
@@ -413,7 +413,7 @@ const Booking = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 {/* Dropoff Location */}
                 <div className="space-y-2">
                   <Label htmlFor="dropoff-location" className="flex items-center">
@@ -432,7 +432,7 @@ const Booking = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 {/* Pickup Date */}
                 <div className="space-y-2">
                   <Label className="flex items-center">
@@ -463,7 +463,7 @@ const Booking = () => {
                     </PopoverContent>
                   </Popover>
                 </div>
-                
+
                 {/* Pickup Time */}
                 <div className="space-y-2">
                   <Label htmlFor="pickup-time" className="flex items-center">
@@ -482,7 +482,7 @@ const Booking = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 {/* Return Date */}
                 <div className="space-y-2">
                   <Label className="flex items-center">
@@ -513,7 +513,7 @@ const Booking = () => {
                     </PopoverContent>
                   </Popover>
                 </div>
-                
+
                 {/* Return Time */}
                 <div className="space-y-2">
                   <Label htmlFor="return-time" className="flex items-center">
@@ -534,16 +534,16 @@ const Booking = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex justify-between">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={handlePreviousStep}
               >
                 Back
               </Button>
-              <Button 
-                onClick={handleNextStep} 
+              <Button
+                onClick={handleNextStep}
                 className="btn-primary"
               >
                 Continue to Extras <ChevronRight className="ml-2 h-4 w-4" />
@@ -551,30 +551,30 @@ const Booking = () => {
             </div>
           </div>
         );
-      
+
       case 2:
         return (
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Select Additional Options</h2>
               <p className="text-gray-600 mb-6">Enhance your rental experience with these useful extras.</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {extras.map((extra) => (
-                  <div 
-                    key={extra.id} 
+                  <div
+                    key={extra.id}
                     className={`p-4 border rounded-lg cursor-pointer transition-all ${selectedExtras.includes(extra.id) ? 'border-primary-blue bg-blue-50' : 'hover:border-gray-400'}`}
                     onClick={() => handleExtraToggle(extra.id)}
                   >
                     <div className="flex items-start">
-                      <Checkbox 
+                      <Checkbox
                         id={`extra-${extra.id}`}
                         checked={selectedExtras.includes(extra.id)}
                         onCheckedChange={() => handleExtraToggle(extra.id)}
                         className="mt-1"
                       />
                       <div className="ml-3">
-                        <Label 
+                        <Label
                           htmlFor={`extra-${extra.id}`}
                           className="font-medium cursor-pointer"
                         >
@@ -588,16 +588,16 @@ const Booking = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="flex justify-between">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={handlePreviousStep}
               >
                 Back
               </Button>
-              <Button 
-                onClick={handleNextStep} 
+              <Button
+                onClick={handleNextStep}
                 className="btn-primary"
               >
                 Continue to Personal Details <ChevronRight className="ml-2 h-4 w-4" />
@@ -605,113 +605,113 @@ const Booking = () => {
             </div>
           </div>
         );
-      
+
       case 3:
         return (
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Personal Details</h2>
               <p className="text-gray-600 mb-6">Please enter your details to complete your booking.</p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">First Name</Label>
-                  <Input 
-                    id="firstName" 
-                    name="firstName" 
-                    value={formData.firstName} 
-                    onChange={handleInputChange} 
-                    required 
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
-                  <Input 
-                    id="lastName" 
-                    name="lastName" 
-                    value={formData.lastName} 
-                    onChange={handleInputChange} 
-                    required 
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="email">Email Address</Label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    value={formData.email} 
-                    onChange={handleInputChange} 
-                    required 
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input 
-                    id="phone" 
-                    name="phone" 
-                    value={formData.phone} 
-                    onChange={handleInputChange} 
-                    required 
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="address">Address</Label>
-                  <Input 
-                    id="address" 
-                    name="address" 
-                    value={formData.address} 
-                    onChange={handleInputChange} 
+                  <Input
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="city">City</Label>
-                  <Input 
-                    id="city" 
-                    name="city" 
-                    value={formData.city} 
-                    onChange={handleInputChange} 
+                  <Input
+                    id="city"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleInputChange}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="postalCode">Postal Code</Label>
-                  <Input 
-                    id="postalCode" 
-                    name="postalCode" 
-                    value={formData.postalCode} 
-                    onChange={handleInputChange} 
+                  <Input
+                    id="postalCode"
+                    name="postalCode"
+                    value={formData.postalCode}
+                    onChange={handleInputChange}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="licenseNumber">Driver's License Number</Label>
-                  <Input 
-                    id="licenseNumber" 
-                    name="licenseNumber" 
-                    value={formData.licenseNumber} 
-                    onChange={handleInputChange} 
+                  <Input
+                    id="licenseNumber"
+                    name="licenseNumber"
+                    value={formData.licenseNumber}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
-              
+
               <div className="mt-6">
                 <div className="flex items-center space-x-2">
-                  <Checkbox 
-                    id="agreeTerms" 
-                    name="agreeTerms" 
-                    checked={formData.agreeTerms} 
-                    onCheckedChange={(checked) => 
+                  <Checkbox
+                    id="agreeTerms"
+                    name="agreeTerms"
+                    checked={formData.agreeTerms}
+                    onCheckedChange={(checked) =>
                       setFormData(prev => ({
-                        ...prev, 
+                        ...prev,
                         agreeTerms: checked === true
                       }))
-                    } 
+                    }
                   />
                   <Label htmlFor="agreeTerms" className="text-sm">
                     I agree to the <a href="#" className="text-primary-blue underline">terms and conditions</a> and <a href="#" className="text-primary-blue underline">privacy policy</a>
@@ -719,16 +719,16 @@ const Booking = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex justify-between">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={handlePreviousStep}
               >
                 Back
               </Button>
-              <Button 
-                onClick={handleNextStep} 
+              <Button
+                onClick={handleNextStep}
                 className="btn-primary"
               >
                 Review Booking <ChevronRight className="ml-2 h-4 w-4" />
@@ -736,7 +736,7 @@ const Booking = () => {
             </div>
           </div>
         );
-      
+
       case 4:
         const van = vans.find(van => van.id === selectedVan);
         const duration = calculateDuration();
@@ -744,13 +744,13 @@ const Booking = () => {
         const formattedPickupDate = pickupDate ? format(pickupDate, "PPP") : '';
         const formattedReturnDate = returnDate ? format(returnDate, "PPP") : '';
         const selectedExtraItems = extras.filter(extra => selectedExtras.includes(extra.id));
-        
+
         return (
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold mb-4">Review Your Booking</h2>
               <p className="text-gray-600 mb-6">Please review your booking details before confirming.</p>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-6">
                   {/* Vehicle Details */}
@@ -761,10 +761,10 @@ const Booking = () => {
                     <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div className="md:col-span-1">
                         {van && (
-                          <img 
-                            src={van.image} 
-                            alt={van.name} 
-                            className="w-full h-32 object-cover rounded-md" 
+                          <img
+                            src={van.image}
+                            alt={van.name}
+                            className="w-full h-32 object-cover rounded-md"
                           />
                         )}
                       </div>
@@ -775,7 +775,7 @@ const Booking = () => {
                       </div>
                     </CardContent>
                   </Card>
-                  
+
                   {/* Rental Details */}
                   <Card>
                     <CardHeader className="pb-3">
@@ -796,7 +796,7 @@ const Booking = () => {
                       </div>
                     </CardContent>
                   </Card>
-                  
+
                   {/* Personal Details */}
                   <Card>
                     <CardHeader className="pb-3">
@@ -816,7 +816,7 @@ const Booking = () => {
                     </CardContent>
                   </Card>
                 </div>
-                
+
                 {/* Order Summary */}
                 <div className="lg:col-span-1">
                   <Card>
@@ -828,12 +828,12 @@ const Booking = () => {
                         <span>Van Rental ({van?.name})</span>
                         <span>R{van?.price} x {duration} days</span>
                       </div>
-                      
+
                       <div className="flex justify-between">
                         <span>Base Price</span>
                         <span>R{van ? van.price * duration : 0}</span>
                       </div>
-                      
+
                       {selectedExtraItems.length > 0 && (
                         <>
                           <div className="pt-2 border-t">
@@ -847,7 +847,7 @@ const Booking = () => {
                           </div>
                         </>
                       )}
-                      
+
                       <div className="pt-4 border-t">
                         <div className="flex justify-between font-semibold text-lg">
                           <span>Total</span>
@@ -857,8 +857,8 @@ const Booking = () => {
                       </div>
                     </CardContent>
                     <CardFooter className="flex-col space-y-2 pt-0">
-                      <Button 
-                        className="w-full btn-accent" 
+                      <Button
+                        className="w-full btn-accent"
                         onClick={handleSubmit}
                         disabled={isSubmitting}
                       >
@@ -878,10 +878,10 @@ const Booking = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex justify-start">
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={handlePreviousStep}
                 disabled={isSubmitting}
               >
@@ -890,7 +890,7 @@ const Booking = () => {
             </div>
           </div>
         );
-      
+
       case 5: // Confirmation
         return (
           <div className="text-center max-w-xl mx-auto py-8">
@@ -903,11 +903,11 @@ const Booking = () => {
             <p className="text-gray-600 mb-6">
               Thank you for your booking. A confirmation email with all the details has been sent to {formData.email}.
             </p>
-            
+
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm mb-6 text-left">
               <h3 className="font-bold mb-2">Booking Reference</h3>
               <p className="text-xl font-mono">APX-{Math.floor(10000 + Math.random() * 90000)}</p>
-              
+
               <h3 className="font-bold mt-4 mb-2">Next Steps</h3>
               <ul className="list-disc list-inside space-y-2">
                 <li>Please arrive at the pickup location 15 minutes before your scheduled time</li>
@@ -915,17 +915,17 @@ const Booking = () => {
                 <li>A security deposit of R{vans.find(van => van.id === selectedVan)?.deposit} will be held against your card</li>
               </ul>
             </div>
-            
+
             <p className="text-sm text-gray-500 mb-6">
-              If you have any questions about your booking, please contact our customer service team at 061 238 4456.
+              If you have any questions about your booking, please contact our customer service team at 078 310 2618.
             </p>
-            
+
             <Button className="btn-primary" onClick={() => window.location.href = '/'}>
               Return to Homepage
             </Button>
           </div>
         );
-      
+
       default:
         return null;
     }
@@ -943,7 +943,7 @@ const Booking = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <div className="bg-primary-blue text-white pt-28 pb-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-4">Book Your Van</h1>
@@ -952,7 +952,7 @@ const Booking = () => {
           </p>
         </div>
       </div>
-      
+
       {activeStep < 5 && (
         <div className="border-b bg-white sticky top-0 z-30 shadow-sm">
           <div className="container mx-auto px-4">
@@ -970,7 +970,7 @@ const Booking = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     {index !== steps.length - 1 && (
                       <div className="absolute top-4 left-8 -ml-px mt-0.5 h-0.5 w-full bg-gray-200">
                         <div className={`h-0.5 ${activeStep > index ? 'bg-primary-blue' : 'bg-gray-200'}`} style={{ width: activeStep > index ? '100%' : '0%' }}></div>
@@ -983,13 +983,13 @@ const Booking = () => {
           </div>
         </div>
       )}
-      
+
       <div className="flex-grow bg-gray-50 py-10">
         <div className="container mx-auto px-4">
           {renderStepContent()}
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

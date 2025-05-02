@@ -69,19 +69,19 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <div className="bg-primary-blue text-white pt-28 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Apex Van Hire</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">About MRAT vehicle rental</h1>
             <p className="text-lg opacity-90">
               We're on a mission to provide reliable, affordable, and hassle-free van rental services to businesses and individuals across South Africa.
             </p>
           </div>
         </div>
       </div>
-      
+
       {/* Our Story */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -99,16 +99,16 @@ const About = () => {
               </p>
             </div>
             <div className="lg:pl-8">
-              <img 
-                src="https://images.unsplash.com/photo-1629806088627-9923d731ecdd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-                alt="Apex Van Hire team" 
+              <img
+                src="https://images.unsplash.com/photo-1629806088627-9923d731ecdd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                alt="Apex Van Hire team"
                 className="rounded-lg shadow-lg w-full h-auto"
               />
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Stats Section */}
       <section className="bg-gradient-to-r from-primary-blue to-primary-light text-white py-16">
         <div className="container mx-auto px-4">
@@ -122,7 +122,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Core Values */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -132,11 +132,11 @@ const About = () => {
               These principles guide everything we do at Apex Van Hire.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="p-6 bg-gray-50 rounded-lg hover:shadow-md transition-shadow text-center"
               >
                 <div className="mb-4 flex justify-center">{value.icon}</div>
@@ -147,7 +147,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Meet The Team */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -157,18 +157,18 @@ const About = () => {
               The passionate individuals driving Apex Van Hire forward.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
               >
                 <div className="h-64 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover" 
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
@@ -181,7 +181,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Our Fleet Overview */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -189,7 +189,7 @@ const About = () => {
             <div className="order-2 lg:order-1">
               <h2 className="section-title">Our Fleet</h2>
               <p className="text-gray-600 mb-6">
-                At Apex Van Hire, we take pride in our extensive and diverse fleet of well-maintained vans. We regularly update our vehicles to ensure you always have access to reliable, efficient, and modern transportation options.
+                At MRAT vehicle rental, we take pride in our extensive and diverse fleet of well-maintained vans. We regularly update our vehicles to ensure you always have access to reliable, efficient, and modern transportation options.
               </p>
               <p className="text-gray-600 mb-6">
                 Whether you need a compact van for urban deliveries, a medium-sized vehicle for moving apartments, or a large van for significant relocations, we have the perfect solution for your needs.
@@ -204,22 +204,22 @@ const About = () => {
               </Link>
             </div>
             <div className="order-1 lg:order-2">
-              <img 
-                src="https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
-                alt="Apex Van Hire fleet" 
+              <img
+                src="https://images.unsplash.com/photo-1532408840957-031d8034aca9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                alt="Apex Van Hire fleet"
                 className="rounded-lg shadow-lg w-full h-auto"
               />
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* Call to Action */}
       <section className="bg-accent-orange text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience Our Service?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Book a van today and discover why thousands of customers trust Apex Van Hire for their transportation needs.
+            Book a van today and discover why thousands of customers trust MRAT vehicle rental for their transportation needs.
           </p>
           <div className="flex justify-center space-x-4">
             <Link to="/booking">
@@ -235,7 +235,7 @@ const About = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

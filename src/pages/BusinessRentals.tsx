@@ -3,9 +3,9 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  BadgeCheck, 
-  Building2, 
+import {
+  BadgeCheck,
+  Building2,
   CheckCircle2,
   Calendar,
   Percent,
@@ -102,14 +102,14 @@ const BusinessRentals = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-primary-blue to-primary-light text-white pt-28 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Business Van Rentals</h1>
             <p className="text-lg opacity-90 mb-6">
-              Tailored van rental solutions to meet the unique needs of your business, 
+              Tailored van rental solutions to meet the unique needs of your business,
               whether you're a small startup or a large corporation.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -125,22 +125,22 @@ const BusinessRentals = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Benefits Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="section-title">Business Benefits</h2>
             <p className="section-subtitle mx-auto">
-              We understand the unique challenges businesses face when it comes to transportation. 
+              We understand the unique challenges businesses face when it comes to transportation.
               That's why we offer specialized services designed specifically for our business clients.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow"
               >
                 <div className="mb-4">{benefit.icon}</div>
@@ -151,7 +151,7 @@ const BusinessRentals = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Business Packages */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -161,11 +161,11 @@ const BusinessRentals = () => {
               Choose the right package that suits your business needs and budget.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`bg-white rounded-lg shadow-md overflow-hidden relative ${pkg.popular ? 'ring-2 ring-accent-orange transform scale-105 md:scale-105 z-10' : ''}`}
               >
                 {pkg.popular && (
@@ -197,7 +197,7 @@ const BusinessRentals = () => {
           </div>
         </div>
       </section>
-      
+
       {/* How It Works */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -207,7 +207,7 @@ const BusinessRentals = () => {
               Our streamlined process makes it easy for businesses to get the vans they need.
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
@@ -227,7 +227,7 @@ const BusinessRentals = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-12">
             <Link to="/booking">
               <Button className="btn-accent">Get Started</Button>
@@ -235,7 +235,7 @@ const BusinessRentals = () => {
           </div>
         </div>
       </section>
-      
+
       {/* FAQ Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -245,24 +245,24 @@ const BusinessRentals = () => {
               Find answers to common questions about our business rental services.
             </p>
           </div>
-          
+
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold text-primary-blue mb-2">Can I add multiple drivers to a business rental?</h3>
               <p className="text-gray-600">Yes, you can add multiple authorized drivers to your business rental. Each driver must meet our standard driver requirements and be approved prior to driving the vehicle.</p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold text-primary-blue mb-2">Do you offer long-term business rentals?</h3>
               <p className="text-gray-600">Yes, we offer flexible rental periods including long-term options for businesses. Our Enterprise package is ideal for extended rentals, offering significant discounts for longer commitments.</p>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-semibold text-primary-blue mb-2">What documentation do I need for a business rental?</h3>
               <p className="text-gray-600">For business rentals, we require company registration documents, a purchase order or company credit card, and driver's identification for all authorized drivers. Additional requirements may apply based on the rental agreement.</p>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
             <Link to="/faq">
               <Button variant="link" className="text-primary-blue">
@@ -272,7 +272,7 @@ const BusinessRentals = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="bg-primary-blue text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -280,7 +280,7 @@ const BusinessRentals = () => {
             <TrendingUp className="h-16 w-16 mx-auto mb-6" />
             <h2 className="text-3xl font-bold mb-4">Take Your Business Further</h2>
             <p className="text-lg mb-8">
-              Join hundreds of businesses that rely on Apex Van Hire for their transportation needs. Our business specialists are ready to create a custom solution for you.
+              Join hundreds of businesses that rely on MRAT vehicle rental for their transportation needs. Our business specialists are ready to create a custom solution for you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/booking">
@@ -295,7 +295,7 @@ const BusinessRentals = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

@@ -23,7 +23,7 @@ const vans = [
   {
     id: 3,
     name: 'Large Van',
-    image: '/lovable-uploads/f46d667c-ad10-48de-9ba7-d76ba328e15b.png',
+    image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Quantum-Panelvan.png',
     description: 'Spacious capacity for larger moves and deliveries',
     price: 'From R1050/day',
     link: '/fleet?category=large'
@@ -45,9 +45,9 @@ const FleetPreview = () => {
           {vans.map((van) => (
             <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden card-hover">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={van.image} 
-                  alt={van.name} 
+                <img
+                  src={van.image}
+                  alt={van.name}
                   className="w-full h-full object-cover"
                 />
               </div>

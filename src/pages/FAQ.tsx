@@ -19,7 +19,7 @@ const faqData = [
     items: [
       {
         question: "How do I make a reservation?",
-        answer: "You can make a reservation through our website by using our online booking system, by calling our customer service at 061 238 4456, or by visiting one of our branch locations in person."
+        answer: "You can make a reservation through our website by using our online booking system, by calling our customer service at 078 310 2618, or by visiting one of our branch locations in person."
       },
       {
         question: "Can I modify or cancel my reservation?",
@@ -106,7 +106,7 @@ const faqData = [
       },
       {
         question: "What time can I pick up and return the van?",
-        answer: "Pickups and returns can be made during our business hours: Monday to Friday from 8:00 to 18:00, Saturday from 8:00 to 14:00, and Sunday from 9:00 to 12:00. After-hours service may be available by prior arrangement."
+        answer: "Pickups and returns can be made during our business hours: Monday to Friday from 8:00 to 17:00, Saturday from 8:00 to 17:00. We are closed on Sundays and public holidays. After-hours service may be available by prior arrangement."
       },
       {
         question: "What if I need to extend my rental period?",
@@ -148,15 +148,15 @@ const FAQ = () => {
   // Filter FAQ items based on search term and active category
   const filteredFAQs = faqData.map(category => {
     const filteredItems = category.items.filter(item => {
-      const matchesSearch = searchTerm === '' || 
-        item.question.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      const matchesSearch = searchTerm === '' ||
+        item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.answer.toLowerCase().includes(searchTerm.toLowerCase());
-        
+
       const matchesCategory = activeCategory === 'all' || activeCategory === category.category;
-      
+
       return matchesSearch && matchesCategory;
     });
-    
+
     return {
       ...category,
       items: filteredItems
@@ -170,20 +170,20 @@ const FAQ = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <div className="bg-primary-blue text-white pt-28 pb-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
             <p className="text-lg opacity-90">
-              Find answers to common questions about our van rental services. 
+              Find answers to common questions about our van rental services.
               If you can't find what you're looking for, feel free to contact us.
             </p>
           </div>
         </div>
       </div>
-      
+
       {/* Search and Filter Section */}
       <section className="bg-white py-10 border-b">
         <div className="container mx-auto px-4">
@@ -198,7 +198,7 @@ const FAQ = () => {
                 className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
               />
             </div>
-            
+
             <div className="flex flex-wrap gap-2 mt-6">
               <button
                 onClick={() => setActiveCategory('all')}
@@ -210,7 +210,7 @@ const FAQ = () => {
               >
                 All Categories
               </button>
-              
+
               {faqData.map((category, index) => (
                 <button
                   key={index}
@@ -228,7 +228,7 @@ const FAQ = () => {
           </div>
         </div>
       </section>
-      
+
       {/* FAQ Content */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -246,7 +246,7 @@ const FAQ = () => {
                   {(activeCategory === 'all' || filteredFAQs.length > 1) && (
                     <h2 className="text-2xl font-bold text-primary-blue mb-6">{category.category}</h2>
                   )}
-                  
+
                   <Accordion type="single" collapsible className="space-y-4">
                     {category.items.map((item, itemIndex) => (
                       <AccordionItem
@@ -269,7 +269,7 @@ const FAQ = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Contact CTA */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
@@ -283,15 +283,15 @@ const FAQ = () => {
                 Contact Us
               </Button>
             </Link>
-            <a href="tel:+27612384456">
+            <a href="tel:+27783102618">
               <Button variant="outline">
-                Call 061 238 4456
+                Call 078 310 2618
               </Button>
             </a>
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

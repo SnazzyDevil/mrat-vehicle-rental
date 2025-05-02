@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
 } from '@/components/ui/select';
 import { Phone, Mail, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
@@ -43,7 +43,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Simple validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast({
@@ -53,7 +53,7 @@ const Contact = () => {
       });
       return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -64,13 +64,13 @@ const Contact = () => {
       });
       return;
     }
-    
+
     setFormData(prev => ({ ...prev, submitting: true }));
-    
+
     // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -80,7 +80,7 @@ const Contact = () => {
         message: '',
         submitting: false
       });
-      
+
       // Show success message
       toast({
         title: "Message sent!",
@@ -100,32 +100,32 @@ const Contact = () => {
   // Branch locations
   const branches = [
     {
-      name: 'Cape Town (Head Office)',
-      address: '123 Main Road, Cape Town, 8001',
-      phone: '061 238 4456',
-      email: 'capetown@apexvanhire.co.za',
-      hours: 'Mon-Fri: 8:00 - 18:00\nSat: 8:00 - 14:00\nSun: 9:00 - 12:00'
+      name: 'Durban (Head Office)',
+      address: '8 Maud road, Malvern, Durban, 4068',
+      phone: '078 310 2618',
+      email: 'info@mratvehiclerental.co.za',
+      hours: 'Mon-Fri: 8:00 - 17:00\nSat: 8:00 - 17:00\nSun and public holidays: Closed'
     },
     {
       name: 'Johannesburg',
       address: '456 Oak Avenue, Sandton, 2196',
-      phone: '061 238 4457',
-      email: 'johannesburg@apexvanhire.co.za',
-      hours: 'Mon-Fri: 8:00 - 18:00\nSat: 8:00 - 14:00\nSun: 9:00 - 12:00'
+      phone: '078 310 2618',
+      email: 'johannesburg@mratvehiclerental.co.za',
+      hours: 'Mon-Fri: 8:00 - 17:00\nSat: 8:00 - 17:00\nSun and public holidays: Closed'
     },
     {
       name: 'Durban',
-      address: '789 Beach Road, Durban, 4001',
-      phone: '061 238 4458',
-      email: 'durban@apexvanhire.co.za',
-      hours: 'Mon-Fri: 8:00 - 18:00\nSat: 8:00 - 14:00\nSun: 9:00 - 12:00'
+      address: '8 Maud road, Malvern, Durban, 4068',
+      phone: '078 310 2618',
+      email: 'durban@mratvehiclerental.co.za',
+      hours: 'Mon-Fri: 8:00 - 17:00\nSat: 8:00 - 17:00\nSun and public holidays: Closed'
     }
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       {/* Hero Section */}
       <div className="bg-primary-blue text-white pt-28 pb-16">
         <div className="container mx-auto px-4">
@@ -138,7 +138,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Main Contact Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
@@ -146,7 +146,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-bold text-primary-blue mb-6">Send Us a Message</h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
@@ -160,7 +160,7 @@ const Contact = () => {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
                     <Input
@@ -174,7 +174,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
@@ -186,7 +186,7 @@ const Contact = () => {
                       placeholder="061 123 4567"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject <span className="text-red-500">*</span></Label>
                     <Select value={formData.subject} onValueChange={handleSelectChange}>
@@ -203,7 +203,7 @@ const Contact = () => {
                     </Select>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="message">Message <span className="text-red-500">*</span></Label>
                   <Textarea
@@ -216,9 +216,9 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="btn-primary"
                   disabled={formData.submitting}
                 >
@@ -232,54 +232,54 @@ const Contact = () => {
                 </Button>
               </form>
             </div>
-            
+
             {/* Contact Info */}
             <div>
               <h2 className="text-2xl font-bold text-primary-blue mb-6">Contact Information</h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <Phone className="h-6 w-6 text-accent-orange mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Main Phone</h3>
                     <p className="text-gray-600">
-                      <a href="tel:+27612384456" className="hover:text-primary-blue">061 238 4456</a>
+                      <a href="tel:+27783102618" className="hover:text-primary-blue">078 310 2618</a>
                     </p>
-                    <p className="text-sm text-gray-500">Mon-Fri: 8:00 - 18:00</p>
+                    <p className="text-sm text-gray-500">Mon-Fri: 8:00 - 17:00</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Mail className="h-6 w-6 text-accent-orange mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
                     <p className="text-gray-600">
-                      <a href="mailto:info@apexvanhire.co.za" className="hover:text-primary-blue">info@apexvanhire.co.za</a>
+                      <a href="mailto:info@mratvehiclerental.co.za" className="hover:text-primary-blue">info@mratvehiclerental.co.za</a>
                     </p>
                     <p className="text-sm text-gray-500">We aim to respond within 24 hours</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <Clock className="h-6 w-6 text-accent-orange mr-3 mt-1" />
                   <div>
                     <h3 className="font-semibold">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 - 18:00</p>
-                    <p className="text-gray-600">Saturday: 8:00 - 14:00</p>
-                    <p className="text-gray-600">Sunday: 9:00 - 12:00</p>
+                    <p className="text-gray-600">Monday - Friday: 8:00 - 17:00</p>
+                    <p className="text-gray-600">Saturday: 8:00 - 17:00</p>
+                    <p className="text-gray-600">Sunday and public holidays: Closed</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <MapPin className="h-6 w-6 text-accent-orange mr-3 mt-1" />
                   <div>
-                    <h3 className="font-semibold">Head Office</h3>
-                    <p className="text-gray-600">123 Main Road</p>
-                    <p className="text-gray-600">Cape Town, 8001</p>
+                    <h3 className="font-semibold">Head Office (Durban)</h3>
+                    <p className="text-gray-600">8 Maud road</p>
+                    <p className="text-gray-600">Malvern, Durban, 4068</p>
                     <p className="text-gray-600">South Africa</p>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
                   <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" className="text-primary-blue hover:text-primary-light flex items-center">
                     View on Google Maps <ArrowRight className="ml-2 h-4 w-4" />
@@ -290,7 +290,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Branches Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -300,21 +300,21 @@ const Contact = () => {
               Visit us at one of our convenient locations across South Africa.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {branches.map((branch, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all"
               >
                 <h3 className="text-xl font-bold text-primary-blue mb-4">{branch.name}</h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 text-accent-orange mr-2 mt-0.5" />
                     <p className="text-gray-600">{branch.address}</p>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Phone className="h-5 w-5 text-accent-orange mr-2 mt-0.5" />
                     <p className="text-gray-600">
@@ -323,7 +323,7 @@ const Contact = () => {
                       </a>
                     </p>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Mail className="h-5 w-5 text-accent-orange mr-2 mt-0.5" />
                     <p className="text-gray-600">
@@ -332,18 +332,18 @@ const Contact = () => {
                       </a>
                     </p>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Clock className="h-5 w-5 text-accent-orange mr-2 mt-0.5" />
                     <p className="text-gray-600 whitespace-pre-line">{branch.hours}</p>
                   </div>
                 </div>
-                
+
                 <div className="mt-6">
-                  <a 
-                    href="https://www.google.com/maps" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://www.google.com/maps"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center text-sm font-medium text-primary-blue hover:text-primary-light"
                   >
                     Get Directions <ArrowRight className="ml-1 h-4 w-4" />
@@ -354,17 +354,17 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Map Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="section-title">Find Us</h2>
             <p className="section-subtitle mx-auto">
-              Visit our head office in Cape Town or one of our branches across the country.
+              Visit our head office in Durban or one of our branches across the country.
             </p>
           </div>
-          
+
           <div className="h-96 bg-gray-200 rounded-lg overflow-hidden">
             {/* Placeholder for Google Maps iframe */}
             <div className="w-full h-full flex items-center justify-center bg-gray-200">
@@ -373,7 +373,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="bg-primary-blue text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -381,7 +381,7 @@ const Contact = () => {
           <p className="text-lg mb-8 max-w-2xl mx-auto">
             Don't wait! Secure your van rental today and ensure you have the perfect vehicle for your needs.
           </p>
-          <Button 
+          <Button
             className="btn-accent"
             onClick={() => window.location.href = '/booking'}
           >
@@ -389,7 +389,7 @@ const Contact = () => {
           </Button>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );

@@ -24,7 +24,7 @@ const Footer = ({
   };
   return <footer className="text-white pt-12 pb-6 bg-[#18100f]">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <LinkComponent path={isSinglePage ? '#home' : '/'} className="flex items-center mb-4">
@@ -79,48 +79,38 @@ const Footer = ({
               <li className="flex items-start">
                 <Phone className="h-5 w-5 mr-2 mt-1 text-accent-orange" />
                 <span className="text-gray-400">
-                  <a href="tel:+27612384456" className="hover:text-white transition-colors">061 238 4456</a>
+                  <a href="tel:+27783102618" className="hover:text-white transition-colors">078 310 2618</a>
                 </span>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-2 mt-1 text-accent-orange" />
                 <span className="text-gray-400">
-                  <a href="mailto:info@apexvanhire.co.za" className="hover:text-white transition-colors">info@apexvanhire.co.za</a>
+                  <a href="mailto:info@mratvehiclerental.co.za" className="hover:text-white transition-colors">info@mratvehiclerental.co.za</a>
                 </span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-1 text-accent-orange" />
-                <span className="text-gray-400">123 Main Street<br />Cape Town, 8001<br />South Africa</span>
+                <span className="text-gray-400">8 Maud road<br />Malvern, Durban, 4068<br />South Africa</span>
               </li>
               <li className="flex items-start">
                 <Clock className="h-5 w-5 mr-2 mt-1 text-accent-orange" />
                 <div className="text-gray-400">
-                  <p>Mon-Fri: 8:00 - 18:00</p>
-                  <p>Sat: 8:00 - 14:00</p>
-                  <p>Sun: 9:00 - 12:00</p>
+                  <p>Mon-Fri: 8:00 - 17:00</p>
+                  <p>Sat: 8:00 - 17:00</p>
+                  <p>Sun and public holidays: Closed</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-            <p className="text-gray-400 mb-4">Subscribe to our newsletter for exclusive deals and updates.</p>
-            <form className="space-y-2">
-              <input type="email" placeholder="Your email address" className="w-full px-4 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-accent-orange" required />
-              <button type="submit" className="w-full bg-accent-orange hover:bg-orange-600 text-white py-2 px-4 rounded transition-colors">
-                Subscribe
-              </button>
-            </form>
-          </div>
+
         </div>
 
         <hr className="border-gray-800 my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Apex Van Hire. All rights reserved.
+            &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm text-gray-400">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

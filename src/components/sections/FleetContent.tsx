@@ -34,7 +34,7 @@ const vans = [{
 }, {
   id: 3,
   name: 'Large Van',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Large-Van.png',
+  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Quantum-Panelvan.png',
   description: 'Spacious capacity for larger moves and deliveries. Ideal for moving home or large office relocations.',
   price: 'From R1050/day',
   category: 'large',
@@ -74,14 +74,14 @@ const FleetContent = () => {
             Browse our range of vans available for hire. Select a category to filter or view details of each vehicle.
           </p>
         </div>
-        
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {categories.map(category => <Button key={category} variant={activeCategory === category ? "default" : "outline"} onClick={() => setActiveCategory(category)} className="capitalize">
               {category}
             </Button>)}
         </div>
-        
+
         {/* Fleet Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVans.map(van => <Card key={van.id} className="overflow-hidden">
@@ -97,18 +97,18 @@ const FleetContent = () => {
                   {van.category}
                 </span>
               </div>
-              
+
               <CardHeader>
                 <CardTitle>{van.name}</CardTitle>
                 <CardDescription>{van.description}</CardDescription>
               </CardHeader>
-              
+
               <CardContent>
                 <div className="text-lg font-semibold text-[#601112]">
                   {van.price}
                 </div>
               </CardContent>
-              
+
               <CardFooter className="flex justify-between">
                 <Button variant="outline" size="sm" onClick={() => setSelectedVan(selectedVan === van.id ? null : van.id)}>
                   <Info size={16} className="mr-2" />
@@ -116,7 +116,7 @@ const FleetContent = () => {
                 </Button>
                 <Button className="text-slate-50 bg-red-600 hover:bg-red-500">Book Now</Button>
               </CardFooter>
-              
+
               {/* Specifications Section */}
               {selectedVan === van.id && <div className="px-6 pb-6 pt-0">
                   <div className="border-t border-gray-200 pt-4 mt-2">

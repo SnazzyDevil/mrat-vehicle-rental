@@ -6,44 +6,44 @@ const AboutContent = () => {
     {
       value: '20+',
       label: 'Years Experience'
-    }, 
+    },
     {
       value: '1000+',
       label: 'Happy Customers'
-    }, 
+    },
     {
       value: '50+',
       label: 'Vehicles'
-    }, 
+    },
     {
       value: '24/7',
       label: 'Support'
     }
   ];
-  
+
   const values = [
     {
       icon: Truck,
       title: 'Reliability',
       description: 'We pride ourselves on maintaining an exceptionally reliable fleet of vehicles, ensuring your transportation needs are met without any hitches.'
-    }, 
+    },
     {
       icon: Award,
       title: 'Quality Service',
       description: 'Our commitment to quality service means we go above and beyond to ensure your rental experience is smooth, hassle-free, and exceeds expectations.'
-    }, 
+    },
     {
       icon: ThumbsUp,
       title: 'Customer Satisfaction',
       description: 'We measure our success by the satisfaction of our customers, which is why we constantly strive to improve our services based on your feedback.'
-    }, 
+    },
     {
       icon: Users,
       title: 'Community',
       description: "As a local business, we're committed to supporting the communities we serve and maintaining strong relationships with our customers."
     }
   ];
-  
+
   return (
     <section className="section-padding bg-white">
       <div className="container mx-auto">
@@ -63,7 +63,7 @@ const AboutContent = () => {
           </div>
 
           <div className="md:w-1/2">
-            <img alt="Apex Van Hire fleet" src="/lovable-uploads/80960dd6-a5fd-4f4e-89af-c0621bb010a7.png" className="rounded-lg shadow-lg w-full h-80 object-contain" />
+            <img alt="MRAT vehicle rental fleet" src="/lovable-uploads/80960dd6-a5fd-4f4e-89af-c0621bb010a7.png" className="rounded-lg shadow-lg w-full h-80 object-contain" />
           </div>
         </div>
 

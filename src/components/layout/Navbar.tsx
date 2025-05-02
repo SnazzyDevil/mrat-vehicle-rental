@@ -87,11 +87,11 @@ const Navbar = ({
               <span className="ml-1 text-xl text-accent-red font-semibold">VEHICLE RENTAL</span>
             </LinkComponent>
           </div>
-          
+
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map(item => item.dropdown ? <div key={item.title} className="relative group">
-                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center text-accent-orange hover:text-primary-blue">
+                  <button onClick={() => toggleDropdown(item.title)} className="px-3 py-2 flex items-center text-white hover:text-primary-blue">
                     {item.title}
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
@@ -100,17 +100,17 @@ const Navbar = ({
                           {dropdownItem.title}
                         </LinkComponent>)}
                     </div>}
-                </div> : <LinkComponent key={item.title} path={item.path} className="px-3 py-2 text-accent-orange hover:text-primary-blue">
+                </div> : <LinkComponent key={item.title} path={item.path} className="px-3 py-2 text-white hover:text-primary-blue">
                   {item.title}
                 </LinkComponent>)}
           </div>
-          
+
           <div className="hidden md:flex">
             <LinkComponent path={isSinglePage ? '#booking' : '/booking'} className="btn-accent">
               Book Now
             </LinkComponent>
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="flex md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-700 rounded-md outline-none">
@@ -118,7 +118,7 @@ const Navbar = ({
             </button>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
         {isOpen && <div className="md:hidden bg-white shadow-lg absolute top-20 left-0 right-0 z-50 animate-fade-in">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
