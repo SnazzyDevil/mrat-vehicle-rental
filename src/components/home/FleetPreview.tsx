@@ -1,6 +1,8 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+
 const vans = [{
   id: 1,
   name: 'Compact Van',
@@ -23,18 +25,19 @@ const vans = [{
   price: 'From R1050/day',
   link: '/fleet?category=large'
 }];
+
 const FleetPreview = () => {
-  return <section className="bg-gray-50 mx-[51px] my-0 py-[2px] px-0">
+  return (
+    <section className="bg-gray-50 mx-[51px] my-0 py-[2px] px-0">
       <div className="container mx-auto">
-        
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {vans.map(van => <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
-              
-              
-            </div>)}
+          {vans.map(van => (
+            <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
+              {/* The content for each van card will go here */}
+            </div>
+          ))}
         </div>
-
+        
         <div className="mt-12 text-center">
           <Link to="/all-vehicles">
             <Button className="bg-primary-maroon hover:bg-primary-light text-white py-2 rounded-md inline-flex items-center mx-0 my-0 px-[14px]">
@@ -43,6 +46,8 @@ const FleetPreview = () => {
           </Link>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FleetPreview;
