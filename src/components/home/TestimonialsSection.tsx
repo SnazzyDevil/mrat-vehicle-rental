@@ -18,7 +18,7 @@ const testimonials = [{
   type: 'personal'
 }, {
   id: 3,
-  name: 'Michael Brown',
+  name: 'Kobus Botha',
   company: 'XYZ Distributors',
   image: '',
   rating: 4,
