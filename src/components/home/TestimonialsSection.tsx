@@ -10,7 +10,7 @@ const testimonials = [{
   type: 'business'
 }, {
   id: 2,
-  name: 'Sarah Johnson',
+  name: 'Reshan Moodley',
   company: 'Personal Customer',
   image: '',
   rating: 5,
@@ -26,7 +26,7 @@ const testimonials = [{
   type: 'business'
 }, {
   id: 4,
-  name: 'Emily Wilson',
+  name: 'Priya Reddy',
   company: 'Personal Customer',
   image: '',
   rating: 5,
@@ -34,8 +34,8 @@ const testimonials = [{
   type: 'personal'
 }, {
   id: 5,
-  name: 'David Thompson',
-  company: 'Thompson\'s Furniture',
+  name: 'Lesego Dlamini',
+  company: 'Dlamini\'s Furniture',
   image: '',
   rating: 5,
   text: 'As a furniture retailer, reliable delivery is crucial for our business. MRAT Vehicle Rental has consistently provided us with excellent vehicles and service. A trustworthy partner.',
