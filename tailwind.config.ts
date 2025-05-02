@@ -31,8 +31,9 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-					blue: '#0E3B72',
-					light: '#1E5BAD'
+					maroon: '#601112',
+					dark: '#420C0D',
+					light: '#7A1718'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -49,8 +50,8 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					orange: '#F97316',
-					red: '#ea384c'  // Added accent-red color
+					maroon: '#801818',
+					red: '#ea384c'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

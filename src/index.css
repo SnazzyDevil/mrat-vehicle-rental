@@ -112,7 +112,7 @@
   }
   
   .btn-primary {
-    @apply bg-primary-blue hover:bg-primary-light text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
+    @apply bg-primary-maroon hover:bg-primary-light text-white font-semibold py-3 px-6 rounded-md transition-all duration-300 transform hover:scale-105;
   }
   
   .btn-accent {
@@ -124,7 +124,7 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary-blue mb-4;
+    @apply text-3xl md:text-4xl font-bold text-primary-maroon mb-4;
   }
   
   .section-subtitle {
