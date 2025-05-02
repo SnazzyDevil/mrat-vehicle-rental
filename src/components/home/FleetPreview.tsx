@@ -24,7 +24,7 @@ const vans = [{
   link: '/fleet?category=large'
 }];
 const FleetPreview = () => {
-  return <section className="py-16 bg-gray-50">
+  return <section className="bg-gray-50 mx-[51px] my-0 py-[2px] px-0">
       <div className="container mx-auto">
         
 
