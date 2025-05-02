@@ -37,7 +37,7 @@ const FleetPreview = () => {
 
         <div className="mt-12 text-center">
           <Link to="/all-vehicles">
-            <Button className="bg-primary-maroon hover:bg-primary-light text-white px-8 py-2 rounded-md inline-flex items-center">
+            <Button className="bg-primary-maroon hover:bg-primary-light text-white py-2 rounded-md inline-flex items-center mx-0 my-0 px-[14px]">
               View All Vehicles <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
