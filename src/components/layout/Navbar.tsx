@@ -32,9 +32,6 @@ const Navbar = ({
     title: 'Home',
     path: isSinglePage ? '#home' : '/'
   }, {
-    title: 'Our Fleet',
-    path: isSinglePage ? '#fleet' : '/fleet'
-  }, {
     title: 'Services',
     dropdown: true,
     items: [{
