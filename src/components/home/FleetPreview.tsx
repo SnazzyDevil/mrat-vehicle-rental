@@ -15,7 +15,7 @@ const vans = [{
   name: 'Medium Van',
   image: '/lovable-uploads/b3856f74-747f-4752-8887-fa3840e7029c.png',
   description: 'Ideal for medium loads and furniture moving',
-  price: 'From R850/day',
+  price: 'From R750/day',
   link: '/fleet?category=medium'
 }, {
   id: 3,
@@ -37,7 +37,7 @@ const FleetPreview = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <Link to="/all-vehicles">
             <Button className="bg-primary-maroon hover:bg-primary-light text-white py-2 rounded-md inline-flex items-center mx-0 my-0 px-[14px]">

@@ -50,7 +50,7 @@ const vans = [
     name: 'Medium Panel Van',
     category: 'medium',
     image: 'https://images.unsplash.com/photo-1672590858482-a8ed5532d771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    price: 850,
+    price: 750,
     deposit: 4000,
   },
   {

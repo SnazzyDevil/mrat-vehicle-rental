@@ -22,7 +22,7 @@ const vans = [{
   name: 'Medium Van',
   image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Medium-Van.png',
   description: 'Ideal for medium loads and furniture moving. Perfect balance of space and maneuverability.',
-  price: 'From R850/day',
+  price: 'From R750/day',
   category: 'medium',
   specs: {
     loadSpace: '6.5 cubic meters',
