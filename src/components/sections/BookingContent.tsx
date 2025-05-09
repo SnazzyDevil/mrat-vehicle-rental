@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { CalendarIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -6,9 +7,92 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { toast } from '@/hooks/use-toast';
+
 const BookingContent = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    vehiclePreference: '',
+  });
   const [pickupDate, setPickupDate] = useState<Date | undefined>(undefined);
   const [returnDate, setReturnDate] = useState<Date | undefined>(undefined);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in all required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!pickupDate || !returnDate) {
+      toast({
+        title: "Missing dates",
+        description: "Please select pickup and return dates",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Prepare the data to be sent
+      const bookingData = {
+        ...formData,
+        pickupDate: pickupDate ? format(pickupDate, 'PPP') : '',
+        returnDate: returnDate ? format(returnDate, 'PPP') : '',
+        recipientEmail: 'info@mckennasrental.co.za' // The email address where the booking request will be sent
+      };
+
+      // In a real-world scenario, you would send this to your backend
+      // For now, we'll simulate a successful submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Reset the form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        vehiclePreference: '',
+      });
+      setPickupDate(undefined);
+      setReturnDate(undefined);
+      
+      // Show success message
+      toast({
+        title: "Booking request submitted!",
+        description: `Your booking request has been sent to ${bookingData.recipientEmail}`,
+      });
+    } catch (error) {
+      toast({
+        title: "Error submitting booking",
+        description: "There was a problem submitting your booking request. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return <section className="bg-[#601112]">
       <div className="container mx-auto py-[42px]">
         <div className="text-center mb-12">
@@ -48,39 +132,61 @@ const BookingContent = () => {
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden p-8">
           <h3 className="text-2xl font-bold text-[#601112] mb-6">Start Your Booking</h3>
           
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* First Name */}
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                <Input id="firstName" className="w-full" />
+                <Input 
+                  id="firstName" 
+                  name="firstName" 
+                  value={formData.firstName} 
+                  onChange={handleInputChange} 
+                  className="w-full" 
+                  required 
+                />
               </div>
               
               {/* Last Name */}
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                <Input id="lastName" className="w-full" />
+                <Input 
+                  id="lastName" 
+                  name="lastName" 
+                  value={formData.lastName} 
+                  onChange={handleInputChange} 
+                  className="w-full" 
+                  required 
+                />
               </div>
             </div>
             
             {/* Email Address */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-              <div className="relative">
-                <Input id="email" type="email" className="w-full" />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                    <path fillRule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 5.523 4.477 10 10 10s10-4.477 10-10C20 4.477 15.523 0 10 0zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
+              <Input 
+                id="email" 
+                name="email" 
+                type="email" 
+                value={formData.email} 
+                onChange={handleInputChange} 
+                className="w-full" 
+                required 
+              />
             </div>
             
             {/* Phone Number */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-              <Input id="phone" type="tel" className="w-full" />
+              <Input 
+                id="phone" 
+                name="phone" 
+                type="tel" 
+                value={formData.phone} 
+                onChange={handleInputChange} 
+                className="w-full" 
+                required 
+              />
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -119,13 +225,23 @@ const BookingContent = () => {
             
             {/* Vehicle Preference */}
             <div>
-              <label htmlFor="vehicle" className="block text-sm font-medium text-gray-700 mb-1">Vehicle Preference</label>
-              <Input id="vehicle" className="w-full" />
+              <label htmlFor="vehiclePreference" className="block text-sm font-medium text-gray-700 mb-1">Vehicle Preference</label>
+              <Input 
+                id="vehiclePreference" 
+                name="vehiclePreference" 
+                value={formData.vehiclePreference} 
+                onChange={handleInputChange} 
+                className="w-full" 
+              />
             </div>
             
             {/* Submit Button */}
-            <Button type="submit" className="w-full text-white transition-colors py-6 bg-red-600 hover:bg-red-500">
-              Submit Booking Request
+            <Button 
+              type="submit" 
+              className="w-full text-white transition-colors py-6 bg-red-600 hover:bg-red-500"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Processing...' : 'Submit Booking Request'}
             </Button>
           </form>
         </div>
