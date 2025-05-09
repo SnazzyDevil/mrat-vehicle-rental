@@ -86,7 +86,7 @@ const Footer = ({
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-2 mt-1 text-accent-orange" />
                 <span className="text-gray-400">
-                  <a href="mailto:info@mratvehiclerental.co.za" className="hover:text-white transition-colors">info@mratvehiclerental.co.za</a>
+                  <a href="mailto:info@mratvehiclerental.co.za" className="hover:text-white transition-colors">info@mckennasrental.co.za</a>
                 </span>
               </li>
               <li className="flex items-start">
