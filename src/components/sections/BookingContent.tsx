@@ -8,6 +8,41 @@ import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+// Vehicle data - using the same data structure as in FleetContent.tsx
+const vehicles = [
+  {
+    id: 1,
+    name: 'Compact Van',
+    category: 'compact'
+  }, 
+  {
+    id: 2,
+    name: 'Medium Van',
+    category: 'medium'
+  }, 
+  {
+    id: 3,
+    name: 'Large Van',
+    category: 'large'
+  },
+  {
+    id: 4,
+    name: 'Small Panel Van',
+    category: 'compact'
+  },
+  {
+    id: 5,
+    name: 'Medium Panel Van',
+    category: 'medium'
+  },
+  {
+    id: 6,
+    name: 'Box Truck',
+    category: 'large'
+  }
+];
 
 const BookingContent = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +61,13 @@ const BookingContent = () => {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }));
+  };
+
+  const handleVehicleChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      vehiclePreference: value
     }));
   };
 
@@ -223,16 +265,24 @@ const BookingContent = () => {
               </div>
             </div>
             
-            {/* Vehicle Preference */}
+            {/* Vehicle Preference - Changed to dropdown */}
             <div>
               <label htmlFor="vehiclePreference" className="block text-sm font-medium text-gray-700 mb-1">Vehicle Preference</label>
-              <Input 
-                id="vehiclePreference" 
-                name="vehiclePreference" 
+              <Select 
                 value={formData.vehiclePreference} 
-                onChange={handleInputChange} 
-                className="w-full" 
-              />
+                onValueChange={handleVehicleChange}
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a vehicle" />
+                </SelectTrigger>
+                <SelectContent>
+                  {vehicles.map(vehicle => (
+                    <SelectItem key={vehicle.id} value={vehicle.name}>
+                      {vehicle.name} ({vehicle.category})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             
             {/* Submit Button */}
