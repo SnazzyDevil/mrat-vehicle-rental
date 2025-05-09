@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 interface FooterProps {
@@ -115,7 +116,7 @@ const Footer = ({
               &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm mx-[153px]">
-              Designed By <a href="https://creativortex.studio" target="_blank" rel="noopener noreferrer" className="text-accent-orange hover:underline">Creativortex Studio</a>
+              Designed By <a href="https://www.creativortexstudio.co.za" target="_blank" rel="noopener noreferrer" className="text-accent-orange hover:underline">Creativortex Studio</a>
             </p>
           </div>
           <div className="flex space-x-4 text-sm text-gray-400 mt-4 md:mt-0">
