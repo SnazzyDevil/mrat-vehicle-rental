@@ -30,9 +30,7 @@ const ContactContent = () => {
                   <Mail className="h-5 w-5 mr-3 mt-1 text-accent-orange" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:info@mratvehiclerental.co.za" className="text-gray-600 hover:text-primary-blue">
-                      info@mratvehiclerental.co.za
-                    </a>
+                    <a href="mailto:info@mratvehiclerental.co.za" className="text-gray-600 hover:text-primary-blue">info@mckennasrental.co.za</a>
                   </div>
                 </div>
 
