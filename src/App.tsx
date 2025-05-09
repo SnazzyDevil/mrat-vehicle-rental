@@ -8,6 +8,9 @@ import SinglePage from "./pages/SinglePage";
 import NotFound from "./pages/NotFound";
 import Fleet from "./pages/Fleet";
 import AllVehicles from "./pages/AllVehicles";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CookiePolicy from "./pages/CookiePolicy";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +24,9 @@ const App = () => (
           <Route path="/" element={<SinglePage />} />
           <Route path="/fleet" element={<Fleet />} />
           <Route path="/all-vehicles" element={<AllVehicles />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

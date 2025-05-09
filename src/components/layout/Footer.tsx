@@ -1,7 +1,11 @@
+
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 interface FooterProps {
   isSinglePage?: boolean;
 }
+
 const Footer = ({
   isSinglePage = false
 }: FooterProps) => {
@@ -19,9 +23,10 @@ const Footer = ({
       const anchor = path.replace('/', '#');
       return <a href={anchor} className={className}>{children}</a>;
     } else {
-      return <a href={path} className={className}>{children}</a>;
+      return <Link to={path} className={className}>{children}</Link>;
     }
   };
+
   return <footer className="text-white pt-12 pb-6 bg-[#18100f]">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -113,12 +118,13 @@ const Footer = ({
             &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
           </p>
           <div className="flex space-x-4 text-sm text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            <LinkComponent path="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</LinkComponent>
+            <LinkComponent path="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</LinkComponent>
+            <LinkComponent path="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</LinkComponent>
           </div>
         </div>
       </div>
     </footer>;
 };
+
 export default Footer;
