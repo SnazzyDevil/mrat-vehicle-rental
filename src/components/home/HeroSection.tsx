@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 const HeroSection = () => {
   return <div className="bg-[#601112]">
@@ -11,7 +12,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4">
               
               <Link to="/contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-semibold py-3 px-6 rounded-md transition-all duration-300">
-                Contact Us
+                View All Vehicles
               </Link>
             </div>
           </div>
