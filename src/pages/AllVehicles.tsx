@@ -19,17 +19,17 @@ const vehicleGroups = [{
   id: 'C',
   title: 'Group C - Midsize',
   description: 'Midsize vehicles offering a good balance of space and efficiency',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Polo-GTI.webp'
+  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Polo-GTI.png'
 }, {
   id: 'D',
   title: 'Group D - Standard',
   description: 'Standard size vehicles with more room for passengers and luggage.',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Kia-Sonet.webp'
+  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Kia-Sonet.png'
 }, {
   id: 'E',
   title: 'Group E - 1 Ton Cargo Van',
   description: '1 ton cargo van suitable for transporting goods',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-with-canopy.jpg'
+  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-with-canopy.png'
 }, {
   id: 'F',
   title: 'Group F - Quantum Panel Van',
@@ -59,7 +59,7 @@ const vehicleGroups = [{
   id: 'N',
   title: 'Group N - Double cab Hilux Van',
   description: 'Double cab Hilux for hauling and off-road capability ',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-double-cab.jpg'
+  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-double-cab.png'
 }, {
   id: 'O',
   title: 'Group O - Commercial van',
