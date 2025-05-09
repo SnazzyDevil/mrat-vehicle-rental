@@ -9,9 +9,7 @@ const HeroSection = () => {
               From business deliveries to personal moves, our fleet of well-maintained vans is ready to meet your needs.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/fleet" className="btn-accent">
-                View Our Fleet
-              </Link>
+              
               <Link to="/contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:bg-opacity-10 font-semibold py-3 px-6 rounded-md transition-all duration-300">
                 Contact Us
               </Link>
