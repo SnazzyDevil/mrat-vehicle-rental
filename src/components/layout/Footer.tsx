@@ -1,11 +1,8 @@
-
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 interface FooterProps {
   isSinglePage?: boolean;
 }
-
 const Footer = ({
   isSinglePage = false
 }: FooterProps) => {
@@ -26,7 +23,6 @@ const Footer = ({
       return <Link to={path} className={className}>{children}</Link>;
     }
   };
-
   return <footer className="text-white pt-12 pb-6 bg-[#18100f]">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,7 +114,7 @@ const Footer = ({
             <p className="text-gray-400 text-sm">
               &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm mx-[153px]">
               Designed By <a href="https://creativortex.studio" target="_blank" rel="noopener noreferrer" className="text-accent-orange hover:underline">Creativortex Studio</a>
             </p>
           </div>
@@ -131,5 +127,4 @@ const Footer = ({
       </div>
     </footer>;
 };
-
 export default Footer;
