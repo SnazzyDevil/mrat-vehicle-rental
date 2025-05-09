@@ -64,7 +64,7 @@ const CookiePolicy = () => {
             If you have questions about our Cookie Policy, please contact us at:
           </p>
           <p className="mb-4">
-            Email: info@mratvehiclerental.co.za<br />
+            Email: info@mckennasrental.co.za<br />
             Phone: 078 310 2618<br />
             Address: 8 Maud road, Malvern, Durban, 4068, South Africa
           </p>

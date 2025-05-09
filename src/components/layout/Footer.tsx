@@ -114,10 +114,15 @@ const Footer = ({
         <hr className="border-gray-800 my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
-          </p>
-          <div className="flex space-x-4 text-sm text-gray-400">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-gray-400 text-sm">
+              &copy; {new Date().getFullYear()} MRAT vehicle rental. All rights reserved.
+            </p>
+            <p className="text-gray-400 text-sm">
+              Designed By <a href="https://creativortex.studio" target="_blank" rel="noopener noreferrer" className="text-accent-orange hover:underline">Creativortex Studio</a>
+            </p>
+          </div>
+          <div className="flex space-x-4 text-sm text-gray-400 mt-4 md:mt-0">
             <LinkComponent path="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</LinkComponent>
             <LinkComponent path="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</LinkComponent>
             <LinkComponent path="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</LinkComponent>
