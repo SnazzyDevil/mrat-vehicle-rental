@@ -14,7 +14,349 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blog_posts: {
+        Row: {
+          author_email: string | null
+          author_name: string | null
+          content: string | null
+          created_at: string
+          excerpt: string | null
+          featured_image_url: string | null
+          id: string
+          published_at: string | null
+          site_id: string
+          slug: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author_email?: string | null
+          author_name?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          published_at?: string | null
+          site_id: string
+          slug: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author_email?: string | null
+          author_name?: string | null
+          content?: string | null
+          created_at?: string
+          excerpt?: string | null
+          featured_image_url?: string | null
+          id?: string
+          published_at?: string | null
+          site_id?: string
+          slug?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blog_posts_site_id_fkey"
+            columns: ["site_id"]
+            isOneToOne: false
+            referencedRelation: "sites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      business_faqs: {
+        Row: {
+          answer: string
+          business_id: string
+          created_at: string | null
+          id: string
+          question: string
+        }
+        Insert: {
+          answer: string
+          business_id: string
+          created_at?: string | null
+          id?: string
+          question: string
+        }
+        Update: {
+          answer?: string
+          business_id?: string
+          created_at?: string | null
+          id?: string
+          question?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_faqs_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "business_listings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      business_listings: {
+        Row: {
+          business_hours: Json | null
+          category_id: string | null
+          city: string | null
+          created_at: string | null
+          description: string | null
+          featured: boolean | null
+          full_address: string | null
+          id: string
+          images: string[] | null
+          logo_url: string | null
+          phone: string | null
+          price_from: number | null
+          price_range: string | null
+          price_to: number | null
+          social_media_links: Json | null
+          status: string | null
+          tags: string[] | null
+          title: string
+          updated_at: string | null
+          user_id: string
+          website: string | null
+        }
+        Insert: {
+          business_hours?: Json | null
+          category_id?: string | null
+          city?: string | null
+          created_at?: string | null
+          description?: string | null
+          featured?: boolean | null
+          full_address?: string | null
+          id?: string
+          images?: string[] | null
+          logo_url?: string | null
+          phone?: string | null
+          price_from?: number | null
+          price_range?: string | null
+          price_to?: number | null
+          social_media_links?: Json | null
+          status?: string | null
+          tags?: string[] | null
+          title: string
+          updated_at?: string | null
+          user_id: string
+          website?: string | null
+        }
+        Update: {
+          business_hours?: Json | null
+          category_id?: string | null
+          city?: string | null
+          created_at?: string | null
+          description?: string | null
+          featured?: boolean | null
+          full_address?: string | null
+          id?: string
+          images?: string[] | null
+          logo_url?: string | null
+          phone?: string | null
+          price_from?: number | null
+          price_range?: string | null
+          price_to?: number | null
+          social_media_links?: Json | null
+          status?: string | null
+          tags?: string[] | null
+          title?: string
+          updated_at?: string | null
+          user_id?: string
+          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_listings_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      categories: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          icon: string | null
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      contact_form_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          site_id: string
+          status: string
+          subject: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          site_id: string
+          status?: string
+          subject: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          site_id?: string
+          status?: string
+          subject?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contact_form_submissions_site_id_fkey"
+            columns: ["site_id"]
+            isOneToOne: false
+            referencedRelation: "sites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_subscriptions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string | null
+          site_id: string
+          source: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name?: string | null
+          site_id: string
+          source?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string | null
+          site_id?: string
+          source?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_subscriptions_site_id_fkey"
+            columns: ["site_id"]
+            isOneToOne: false
+            referencedRelation: "sites"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      sites: {
+        Row: {
+          created_at: string
+          description: string | null
+          domain: string | null
+          id: string
+          label: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          domain?: string | null
+          id?: string
+          label: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          domain?: string | null
+          id?: string
+          label?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

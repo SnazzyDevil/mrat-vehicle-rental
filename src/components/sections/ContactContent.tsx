@@ -1,6 +1,89 @@
+
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { useSiteId } from '@/hooks/useSiteId';
+
 const ContactContent = () => {
+  const { data: siteId } = useSiteId();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!siteId) {
+      toast({
+        title: "Error",
+        description: "Site configuration not found. Please try again.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Missing information",
+        description: "Please fill in all required fields",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_form_submissions')
+        .insert({
+          site_id: siteId,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || null,
+          subject: formData.subject,
+          message: formData.message
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
@@ -30,7 +113,7 @@ const ContactContent = () => {
                   <Mail className="h-5 w-5 mr-3 mt-1 text-accent-orange" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:info@mratvehiclerental.co.za" className="text-gray-600 hover:text-primary-blue">info@mckennasrental.co.za</a>
+                    <a href="mailto:info@mckennasrental.co.za" className="text-gray-600 hover:text-primary-blue">info@mckennasrental.co.za</a>
                   </div>
                 </div>
 
@@ -88,36 +171,84 @@ const ContactContent = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
               <h3 className="text-xl font-bold mb-6 text-[#601112]">Send Us a Message</h3>
 
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                    <input type="text" id="name" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Your name" required />
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" 
+                      placeholder="Your name" 
+                      required 
+                    />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Your email" required />
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" 
+                      placeholder="Your email" 
+                      required 
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                  <input type="tel" id="phone" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Your phone number" />
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" 
+                    placeholder="Your phone number" 
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                  <input type="text" id="subject" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Message subject" required />
+                  <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" 
+                    placeholder="Message subject" 
+                    required 
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                  <textarea id="message" rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" placeholder="Your message" required />
+                  <textarea 
+                    id="message" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4} 
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary-blue" 
+                    placeholder="Your message" 
+                    required 
+                  />
                 </div>
 
-                <Button type="submit" className="btn-primary w-full bg-red-600 hover:bg-red-500">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  className="btn-primary w-full bg-red-600 hover:bg-red-500"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>

@@ -9,6 +9,8 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { supabase } from '@/integrations/supabase/client';
+import { useSiteId } from '@/hooks/useSiteId';
 
 // Vehicle data - using the same data structure as in FleetContent.tsx
 const vehicles = [
@@ -45,6 +47,7 @@ const vehicles = [
 ];
 
 const BookingContent = () => {
+  const { data: siteId } = useSiteId();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -74,6 +77,15 @@ const BookingContent = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!siteId) {
+      toast({
+        title: "Error",
+        description: "Site configuration not found. Please try again.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     // Basic validation
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
       toast({
@@ -96,17 +108,20 @@ const BookingContent = () => {
     setIsSubmitting(true);
 
     try {
-      // Prepare the data to be sent
-      const bookingData = {
-        ...formData,
-        pickupDate: pickupDate ? format(pickupDate, 'PPP') : '',
-        returnDate: returnDate ? format(returnDate, 'PPP') : '',
-        recipientEmail: 'info@mckennasrental.co.za' // The email address where the booking request will be sent
-      };
+      const { error } = await supabase
+        .from('booking_form_submissions')
+        .insert({
+          site_id: siteId,
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          vehicle_preference: formData.vehiclePreference || null,
+          pickup_date: pickupDate.toISOString().split('T')[0], // Convert to YYYY-MM-DD format
+          return_date: returnDate.toISOString().split('T')[0]
+        });
 
-      // In a real-world scenario, you would send this to your backend
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      if (error) throw error;
       
       // Reset the form
       setFormData({
@@ -122,9 +137,10 @@ const BookingContent = () => {
       // Show success message
       toast({
         title: "Booking request submitted!",
-        description: `Your booking request has been sent to ${bookingData.recipientEmail}`,
+        description: "We'll contact you soon to confirm your booking details.",
       });
     } catch (error) {
+      console.error('Error submitting booking:', error);
       toast({
         title: "Error submitting booking",
         description: "There was a problem submitting your booking request. Please try again.",
