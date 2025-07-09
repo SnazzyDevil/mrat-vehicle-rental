@@ -47,7 +47,7 @@ const vehicles = [
 ];
 
 const BookingContent = () => {
-  const { data: siteId } = useSiteId();
+  const { data: siteId, error: siteError } = useSiteId();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -76,6 +76,9 @@ const BookingContent = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    console.log('Site ID:', siteId);
+    console.log('Site Error:', siteError);
     
     if (!siteId) {
       toast({
@@ -108,8 +111,9 @@ const BookingContent = () => {
     setIsSubmitting(true);
 
     try {
+      // Use the generic .from() method and cast the result
       const { error } = await supabase
-        .from('booking_form_submissions')
+        .from('booking_form_submissions' as any)
         .insert({
           site_id: siteId,
           first_name: formData.firstName,
@@ -121,7 +125,10 @@ const BookingContent = () => {
           return_date: returnDate.toISOString().split('T')[0]
         });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Booking submission error:', error);
+        throw error;
+      }
       
       // Reset the form
       setFormData({
