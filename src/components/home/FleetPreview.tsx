@@ -34,7 +34,7 @@ const FleetPreview = () => {
           {vans.map(van => (
             <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
               <div className="relative">
-                <img src={van.image} alt={van.name} className="w-full h-48 object-cover" />
+                <img src={van.image} alt={van.name} className="w-full h-48 object-contain" />
                 <span className="absolute bottom-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded text-sm font-medium">
                   {van.name.toLowerCase().split(' ')[0]}
                 </span>

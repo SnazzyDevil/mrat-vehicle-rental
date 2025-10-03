@@ -86,7 +86,7 @@ const FleetContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredVans.map(van => <Card key={van.id} className="overflow-hidden">
               <div className="relative h-48 overflow-hidden bg-gray-200">
-                <img src={customImages[van.id] || van.image} alt={van.name} className="w-full h-full object-cover transition-transform hover:scale-105 duration-500" />
+                <img src={customImages[van.id] || van.image} alt={van.name} className="w-full h-full object-contain transition-transform hover:scale-105 duration-500" />
                 <div className="absolute top-2 right-2">
                   <label htmlFor={`upload-${van.id}`} className="bg-white/90 hover:bg-white p-2 rounded-full cursor-pointer flex items-center justify-center shadow-md" title="Upload custom image">
                     
