@@ -33,7 +33,25 @@ const FleetPreview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {vans.map(van => (
             <div key={van.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:shadow-lg hover:-translate-y-1 duration-300">
-              {/* The content for each van card will go here */}
+              <div className="relative">
+                <img src={van.image} alt={van.name} className="w-full h-48 object-cover" />
+                <span className="absolute bottom-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded text-sm font-medium">
+                  {van.name.toLowerCase().split(' ')[0]}
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{van.name}</h3>
+                <p className="text-gray-600 mb-4">{van.description}</p>
+                <p className="text-primary-maroon font-bold text-lg mb-4">{van.price}</p>
+                <div className="flex gap-3">
+                  <Link to={van.link} className="flex-1">
+                    <Button variant="outline" className="w-full">Specifications</Button>
+                  </Link>
+                  <Link to="/booking" className="flex-1">
+                    <Button className="w-full bg-accent-red hover:bg-accent-red/90">Book Now</Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           ))}
         </div>
