@@ -19,7 +19,7 @@ const vehicleGroups = [{
   id: 'C',
   title: 'Group C - Midsize',
   description: 'Midsize vehicles offering a good balance of space and efficiency',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Polo.jpg'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Polo-GTI.png'
 }, {
   id: 'D',
   title: 'Group D - Standard',
