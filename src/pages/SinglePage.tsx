@@ -23,9 +23,8 @@ const SinglePage = () => {
         <HeroSection />
       </section>
 
-      {/* Fleet Preview and Full Fleet Section */}
+      {/* Fleet Section */}
       <section id="fleet">
-        <FleetPreview />
         <FleetContent />
       </section>
 
