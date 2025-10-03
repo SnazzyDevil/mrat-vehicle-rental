@@ -34,12 +34,12 @@ const vehicleGroups = [{
   id: 'F',
   title: 'Group F - Quantum Panel Van',
   description: 'Quantum panel van for medium-sized loads',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Quantum-Panelvan.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Panel-Van.jpg'
 }, {
   id: 'H',
   title: 'Group H - 2.5 ton fridge truck',
   description: '2.5 ton fridge truck for transporting perishable goods',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Large-Van.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Fridge.png'
 }, {
   id: 'I',
   title: 'Group I - Minivan',
