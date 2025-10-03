@@ -6,21 +6,21 @@ import { Button } from '@/components/ui/button';
 const vans = [{
   id: 1,
   name: 'Compact Van',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Compact-Van.jpg',
+  image: '/lovable-uploads/compact-van.jpg',
   description: 'Perfect for small deliveries and urban navigation',
   price: 'From R650/day',
   link: '/fleet?category=compact'
 }, {
   id: 2,
   name: 'Medium Van',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Medium-Van.jpg',
+  image: '/lovable-uploads/medium-van.jpg',
   description: 'Ideal for medium loads and furniture moving',
   price: 'From R750/day',
   link: '/fleet?category=medium'
 }, {
   id: 3,
   name: 'Large Van',
-  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Large-Van.jpg',
+  image: '/lovable-uploads/large-van.jpg',
   description: 'Spacious capacity for larger moves and deliveries',
   price: 'From R1050/day',
   link: '/fleet?category=large'

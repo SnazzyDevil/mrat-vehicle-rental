@@ -6,7 +6,7 @@ const categories = ['all', 'compact', 'medium', 'large'];
 const vans = [{
   id: 1,
   name: 'Compact Van',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Compact-Van.png',
+  image: '/lovable-uploads/compact-van.jpg',
   description: 'Perfect for small deliveries and urban navigation. Ideal for small moves and deliveries in tight urban spaces.',
   price: 'From R650/day',
   category: 'compact',
@@ -20,7 +20,7 @@ const vans = [{
 }, {
   id: 2,
   name: 'Medium Van',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Medium-Van.png',
+  image: '/lovable-uploads/medium-van.jpg',
   description: 'Ideal for medium loads and furniture moving. Perfect balance of space and maneuverability.',
   price: 'From R750/day',
   category: 'medium',
@@ -34,7 +34,7 @@ const vans = [{
 }, {
   id: 3,
   name: 'Large Van',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Quantum-Panelvan.png',
+  image: '/lovable-uploads/large-van.jpg',
   description: 'Spacious capacity for larger moves and deliveries. Ideal for moving home or large office relocations.',
   price: 'From R1050/day',
   category: 'large',
