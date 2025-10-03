@@ -9,67 +9,67 @@ const vehicleGroups = [{
   id: 'A',
   title: 'Group A - Economy',
   description: 'Small, fuel-efficient vehicles ideal for city driving',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Picanto.jpg'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Picanto.jpg'
 }, {
   id: 'B',
   title: 'Group B - Compact',
   description: 'Compact vehicles with slightly more space and comfort',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Starlet.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Starlet.png'
 }, {
   id: 'C',
   title: 'Group C - Midsize',
   description: 'Midsize vehicles offering a good balance of space and efficiency',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Polo-GTI.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Polo.jpg'
 }, {
   id: 'D',
   title: 'Group D - Standard',
   description: 'Standard size vehicles with more room for passengers and luggage.',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Kia-Sonet.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Kia-Sonet.png'
 }, {
   id: 'E',
   title: 'Group E - 1 Ton Cargo Van',
   description: '1 ton cargo van suitable for transporting goods',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-with-canopy.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Hilux-with-canopy.png'
 }, {
   id: 'F',
   title: 'Group F - Quantum Panel Van',
   description: 'Quantum panel van for medium-sized loads',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Quantum-Panelvan.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Quantum-Panelvan.png'
 }, {
   id: 'H',
   title: 'Group H - 2.5 ton fridge truck',
   description: '2.5 ton fridge truck for transporting perishable goods',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Large-Van.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Large-Van.png'
 }, {
   id: 'I',
   title: 'Group I - Minivan',
   description: 'Minivans with flexible seating for families or groups',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/04/Staria.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Staria.png'
 }, {
   id: 'J',
   title: 'Group J - Luxury Sedan',
   description: 'Luxury sedan with premium features for comfortable travel',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Mercedes-C-class.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Mercedes-C-class.png'
 }, {
   id: 'K',
   title: 'Group K - 14 ton Truck',
   description: '14 ton Isuzu for heavy hauling',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Isuzu-Truck.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Isuzu-Truck.png'
 }, {
   id: 'N',
   title: 'Group N - Double cab Hilux Van',
   description: 'Double cab Hilux for hauling and off-road capability ',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Hilux-double-cab.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Hilux-double-cab.png'
 }, {
   id: 'O',
   title: 'Group O - Commercial van',
   description: 'Commercial vehicles for business transportation needs',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Toyota-Hiace.png'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Toyota-Hiace.png'
 }, {
   id: 'P',
   title: 'Group P - Half ton van',
   description: 'NP200 Perfect for small deliveries and urban navigation. Ideal for small moves and deliveries in tight urban spaces.',
-  image: 'https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/NP200.jpg'
+  image: 'https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/NP200.jpg'
 }];
 const AllVehicles = () => {
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
@@ -173,7 +173,7 @@ const AllVehicles = () => {
               if (group.id === 'D' && selectedType === 'van') {
                 return <Card key={`${group.id}-van`} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="h-60 overflow-hidden">
-                        <img src="https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Toyota-Hilux-Single-Cab-Canopy.png" alt="Group D - 1 ton single cab van" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
+                        <img src="https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Toyota-Hilux-Single-Cab-Canopy.png" alt="Group D - 1 ton single cab van" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
                         <div className="absolute top-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded-md">
                           Group {group.id}
                         </div>
@@ -196,7 +196,7 @@ const AllVehicles = () => {
               if (group.id === 'H' && selectedType === 'van') {
                 return <Card key={`${group.id}-van`} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="h-60 overflow-hidden">
-                        <img src="https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Fortuner.png" alt="Group H - Family SUV" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
+                        <img src="https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Fortuner.png" alt="Group H - Family SUV" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
                         <div className="absolute top-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded-md">
                           Group {group.id}
                         </div>
@@ -219,7 +219,7 @@ const AllVehicles = () => {
               if (group.id === 'I' && selectedType === 'truck') {
                 return <Card key={`${group.id}-truck`} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="h-60 overflow-hidden">
-                        <img src="https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Fridge.png" alt="Group I - 5 ton fridge truck" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
+                        <img src="https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Fridge.png" alt="Group I - 5 ton fridge truck" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
                         <div className="absolute top-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded-md">
                           Group {group.id}
                         </div>
@@ -242,7 +242,7 @@ const AllVehicles = () => {
               if (group.id === 'J' && selectedType === 'truck') {
                 return <Card key={`${group.id}-truck`} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="h-60 overflow-hidden">
-                        <img src="https://mrat.creativortexstudio.co.za/wp-content/uploads/2025/05/Isuzu-800.png" alt="Group J - 8 ton Fridge Truck" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
+                        <img src="https://www.media.mckennasrental.co.za/wp-content/uploads/2025/10/Isuzu-800.png" alt="Group J - 8 ton Fridge Truck" className="w-full h-full object-cover transform transition-transform hover:scale-105 duration-500" />
                         <div className="absolute top-4 left-4 bg-primary-maroon text-white px-3 py-1 rounded-md">
                           Group {group.id}
                         </div>
